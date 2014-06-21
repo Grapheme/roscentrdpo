@@ -30,8 +30,8 @@ class Git_interface extends MY_Controller {
 		if($this->uri->segment(3) == 'test'):
 			$this->git->testConnect('/usr/bin/ssh -T git@github.com');
 		else:
-			//$this->git->execute('/usr/local/bin/git reset --hard HEAD',$config['test_mode']);
-			//$this->git->execute('/usr/local/bin/git pull origin master',$config['test_mode']);
+			$this->git->execute('/usr/local/bin/git reset --hard HEAD',$config['test_mode']);
+			$this->git->execute('/usr/local/bin/git pull origin master',$config['test_mode']);
 			$this->git->setAccessMode();
 			$this->git->setAccessMode('/documents',0777);
 		endif;
