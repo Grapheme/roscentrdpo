@@ -161,7 +161,7 @@ class Git {
 		}
 		
 		if($this->set_log):
-			echo "\ncommand:\n".$command;
+			echo "\ncommand:\n".$this->git_path.'git pull '.$this->remote.' '.$this->branch;
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
 			$this->config->set_item('log_threshold',2);
