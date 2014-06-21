@@ -22,7 +22,6 @@ class Git_interface extends MY_Controller {
 		$config['user_group'] = 'rikardo';
 		$config['user_name'] = 'rikardo';
 		$config['access_mode'] = 0774;
-		$config['project_path'] = getcwd();
 		$config['set_log'] = TRUE;
 		
 		$this->load->library('git');
