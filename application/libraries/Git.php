@@ -94,18 +94,13 @@ class Git {
 		endif;
 		
 		try {
-			exec('/usr/sbin/chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path,$result,$returnCode);
-			echo "\nCommand: ".'chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path;
-			echo "\nResult:\n"; print_r($result);
-			echo "\Code:\n"; print_r($returnCode);
+			chown(getcwd().$path, $this->user_name);
+			chgrp(getcwd().$path, $this->user_group);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене владельца');
 		}
 		try {
-			exec('/bin/chmod -R '.$mode.' '.getcwd().$path,$result,$returnCode);
-			echo "\nCommand: ".'chmod -R '.$mode.' '.getcwd().$path;
-			echo "\nResult:\n"; print_r($result);
-			echo "\Code:\n"; print_r($returnCode);
+			chmod(getcwd().$path,$mode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене прав доступа');
 		}
