@@ -25,12 +25,11 @@ class Git_interface extends MY_Controller {
 		$this->git->init($config);
 		
 		if($this->uri->segment(3) == 'test'):
-			$this->git->testConnect();
+			$this->git->testConnect('/usr/local/bin/ssh -T git@github.com');
 			return TRUE;
 		elseif($this->uri->segment(3) == 'TSHZVixcD1cLGLSTObouk6Tmo3ChmyxD'):
-			echo getcwd();
-//			$this->git->execute('/usr/local/bin/git reset --hard HEAD',TRUE);
-//			$this->git->execute('/usr/local/bin/git pull origin master',TRUE);
+			$this->git->execute('/usr/local/bin/git reset --hard HEAD',TRUE);
+			$this->git->execute('/usr/local/bin/git pull origin master',TRUE);
 		endif;
 		
 	}

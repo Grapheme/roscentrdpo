@@ -16,7 +16,6 @@ class Git {
 	private $CI;
 	
 	protected $test_mode;
-	
 	protected $post;
 	
 	protected $remote;
@@ -99,10 +98,10 @@ class Git {
 		}
 	}
 	
-	public function testConnect(){
+	public function testConnect($command = 'ssh -T git@github.com'){
 		
 		try {
-			exec('ssh -T git@github.com',$result,$returnCode);
+			exec($command,$result,$returnCode);
 			echo "\nResult:\n"; print_r($result);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене владельца');
