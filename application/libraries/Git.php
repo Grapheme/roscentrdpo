@@ -38,7 +38,6 @@ class Git {
 	public function init($params){
 		
 		$this->test_mode = isset($params['test_mode']) ? $params['test_mode'] : FALSE;
-		
 		$this->git_path = isset($params['git_path']) ? $params['git_path'] : '/usr/local/bin/git';
 		
 		$this->remote = isset($params['remote']) ? $params['remote'] : 'origin';

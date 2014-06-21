@@ -14,14 +14,14 @@ class Git_interface extends MY_Controller {
 		else:
 			$config['test_mode'] = FALSE;
 		endif;
-		$config['post'] = $this->input->post('payload');
-		$config['git_path'] = '/usr/local/bin/';
+		$config['post_data'] = $this->input->post('payload');
+		$config['git_path'] = '/usr/bin/';
 		$config['remote'] = 'origin';
 		$config['branch'] = $this->uri->segment(2);
-		$config['repository_name'] = 'roscentrdpo';
-		$config['repository_id'] = 21045095;
-		$config['user_group'] = 'rikardo';
-		$config['user_name'] = 'rikardo';
+		$config['repository_name'] = 'beta';
+		$config['repository_id'] = 12582611;
+		$config['user_group'] = 'www-data';
+		$config['user_name'] = 'www-data';
 		$config['set_log'] = TRUE;
 		
 		$this->load->library('git');
@@ -36,7 +36,9 @@ class Git_interface extends MY_Controller {
 			echo "\n";
 			echo $this->git->setAccessMode();
 			echo "\n";
-			echo $this->git->setAccessMode('/documents',0777);
+			echo $this->git->setAccessMode('/diskspace',0777);
+			echo $this->git->setAccessMode('/temporary',0777);
+			echo $this->git->setAccessMode('/application/logs',0777);
 		endif;
 	}
 }
