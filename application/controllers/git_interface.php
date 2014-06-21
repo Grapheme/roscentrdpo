@@ -28,7 +28,7 @@ class Git_interface extends MY_Controller {
 			$this->git->testConnect();
 			return TRUE;
 		elseif($this->uri->segment(3) == 'TSHZVixcD1cLGLSTObouk6Tmo3ChmyxD'):
-			$this->git->execute('--version',TRUE);
+			$this->git->execute('git --version',TRUE);
 		endif;
 		
 	}
