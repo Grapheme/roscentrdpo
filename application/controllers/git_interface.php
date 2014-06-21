@@ -15,6 +15,7 @@ class Git_interface extends MY_Controller {
 			$config['test_mode'] = FALSE;
 		endif;
 		$config['post'] = $this->input->post('payload');
+		$config['git_path'] = '/usr/local/bin/';
 		$config['remote'] = 'origin';
 		$config['branch'] = $this->uri->segment(2);
 		$config['repository_name'] = 'roscentrdpo';
@@ -29,9 +30,9 @@ class Git_interface extends MY_Controller {
 		if($this->uri->segment(3) == 'test'):
 			echo $this->git->testConnect('/usr/bin/ssh -T git@github.com');
 		else:
-			echo $this->git->execute('/usr/local/bin/git reset --hard HEAD',$config['test_mode']);
+			echo $this->git->execute('git reset --hard HEAD');
 			echo "\n";
-			echo $this->git->execute('/usr/local/bin/git pull origin master',$config['test_mode']);
+			echo $this->git->pull();
 			echo "\n";
 			echo $this->git->setAccessMode();
 			echo "\n";

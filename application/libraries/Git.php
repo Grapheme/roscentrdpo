@@ -18,6 +18,8 @@ class Git {
 	protected $test_mode;
 	protected $post;
 	
+	protected $git_path;
+	
 	protected $remote;
 	protected $branch;
 	protected $repository_name;
@@ -36,6 +38,8 @@ class Git {
 	public function init($params){
 		
 		$this->test_mode = isset($params['test_mode']) ? $params['test_mode'] : FALSE;
+		
+		$this->git_path = isset($params['git_path']) ? $params['git_path'] : '/usr/local/bin/git';
 		
 		$this->remote = isset($params['remote']) ? $params['remote'] : 'origin';
 		$this->branch = isset($params['branch']) ? $params['branch'] : 'master';
@@ -117,17 +121,18 @@ class Git {
 		}
 	}
 	
-	public function execute($command = NULL,$test_mode = FALSE){
+	public function execute($command = NULL){
 		
 		if(is_null($command)):
 			return 'Отсутствует комманда GIT';
 		endif;
 		
 		if(!$this->permission()):
+			header('HTTP/1.0 403 Forbidden');
 			return 'В доступе отказано';
 		endif;
 		try {
-			exec($command.' 2>&1',$result,$returnCode);
+			exec($this->git_path.$command.' 2>&1',$result,$returnCode);
 		} catch (Exception $e) {
 			return 'Невозможно вызвать комманду: '.$command;
 		}
@@ -142,14 +147,15 @@ class Git {
 		return TRUE;
 	}
 	
-	public function pull($test_mode = FALSE){
+	public function pull(){
 		
 		if(!$this->permission()):
+			header('HTTP/1.0 403 Forbidden');
 			return 'В доступе отказано';
 		endif;
 		
 		try {
-			exec('git pull '.$this->remote.' '.$this->branch.' 2>&1',$result,$returnCode);
+			exec($this->git_path.'git pull '.$this->remote.' '.$this->branch.' 2>&1',$result,$returnCode);
 		} catch (Exception $e) {
 			return 'Невозможно вызвать комманду git pull'. $this->remote.' '.$this->branch;
 		}
