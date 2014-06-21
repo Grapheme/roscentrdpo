@@ -96,13 +96,15 @@ class Git {
 		try {
 			chown(getcwd().$path, $this->user_name);
 			chgrp(getcwd().$path, $this->user_group);
-		} catch (Exception $e) {
-			throw new Exception('Ошибка при смене владельца');
+		} catch (Exception $error) {
+			echo $error->getMessage();
+			return FALSE;
 		}
 		try {
 			chmod(getcwd().$path,$mode);
-		} catch (Exception $e) {
-			throw new Exception('Ошибка при смене прав доступа');
+		} catch (Exception $error) {
+			echo $error->getMessage();
+			return FALSE;
 		}
 	}
 	
@@ -112,24 +114,26 @@ class Git {
 			exec($command.' 2>&1',$result,$returnCode);
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
-		} catch (Exception $e) {
-			throw new Exception('Ошибка при смене владельца');
+		} catch (Exception $error) {
+			echo $error->getMessage();
+			return FALSE;
 		}
 	}
 	
 	public function execute($command = NULL,$test_mode = FALSE){
 		
 		if(is_null($command)):
-			throw new Exception('Отсутствует комманда GIT');
+			return FALSE;
 		endif;
 		
 		if(!$this->permission()):
-			throw new Exception('В доступе отказано');
+			return FALSE;
 		endif;
 		try {
 			exec($command.' 2>&1',$result,$returnCode);
-		} catch (Exception $e) {
-			throw new Exception('Невозможно вызвать комманду: '.$command);
+		} catch (Exception $error) {
+			echo $error->getMessage();
+			return FALSE;
 		}
 		if($this->set_log):
 			echo "\ncommand:\n".$command;
@@ -145,13 +149,14 @@ class Git {
 	public function pull($test_mode = FALSE){
 		
 		if(!$this->permission()):
-			throw new Exception('В доступе отказано');
+			return FALSE;
 		endif;
 		
 		try {
 			exec('git pull '.$this->remote.' '.$this->branch.' 2>&1',$result,$returnCode);
-		} catch (Exception $e) {
-			throw new Exception('Невозможно вызвать комманду git pull'. $this->remote.' '.$this->branch);
+		} catch (Exception $error) {
+			echo $error->getMessage();
+			return FALSE;
 		}
 		
 		if($this->set_log):
