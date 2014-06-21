@@ -21,7 +21,7 @@ class Git_interface extends MY_Controller {
 		$config['repository_id'] = 21045095;
 		$config['user_group'] = 'rikardo';
 		$config['user_name'] = 'rikardo';
-		$config['access_mode'] = 0744;
+		$config['access_mode'] = 0774;
 		$config['project_path'] = getcwd();
 		$config['set_log'] = TRUE;
 		
@@ -34,6 +34,7 @@ class Git_interface extends MY_Controller {
 			//$this->git->execute('/usr/local/bin/git reset --hard HEAD',$config['test_mode']);
 			//$this->git->execute('/usr/local/bin/git pull origin master',$config['test_mode']);
 			$this->git->setAccessMode();
+			$this->git->setAccessMode('/documents',0777);
 		endif;
 	}
 }

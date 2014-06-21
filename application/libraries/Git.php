@@ -42,7 +42,7 @@ class Git {
 		$this->user_group = isset($params['user_group']) ? $params['user_group'] : 'www-data';
 		$this->user_name = isset($params['user_name']) ? $params['user_name'] : 'www-data';
 		$this->access_mode = isset($params['access_mode']) ? $params['access_mode'] : 0744;
-		$this->project_path = isset($params['project_path']) ? $params['project_path'] : getcwd();
+		$this->project_path = isset($params['project_path']) ? $params['project_path'] : '';
 		$this->set_log = isset($params['set_log']) ? $params['set_log'] : TRUE;
 		
 		$this->post = isset($params['post_data']) ? $params['post_data'] : FALSE;
@@ -84,15 +84,22 @@ class Git {
 		return FALSE;
 	}
 	
-	public function setAccessMode(){
+	public function setAccessMode($path = NULL,$mode = NULL){
+		
+		if(is_null($path)):
+			$path = $this->project_path;
+		endif;
+		if(is_null($mode)):
+			$mode = $this->access_mode;
+		endif;
 		
 		try {
-			exec('chown -R '.$this->user_name.':'.$this->user_group.' '.$this->project_path,$result,$returnCode);
+			exec('chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path,$result,$returnCode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене владельца');
 		}
 		try {
-			exec('chmod -R '.$this->user_name.' '.$this->project_path,$result,$returnCode);
+			exec('chmod -R '.$mode.' '.getcwd().$path,$result,$returnCode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене прав доступа');
 		}
