@@ -28,8 +28,9 @@ class Git_interface extends MY_Controller {
 			$this->git->testConnect();
 			return TRUE;
 		elseif($this->uri->segment(3) == 'TSHZVixcD1cLGLSTObouk6Tmo3ChmyxD'):
-			$this->git->execute('git reset --hard HEAD',TRUE);
-			$this->git->execute('git pull origin master',TRUE);
+			echo getcwd();
+//			$this->git->execute('/usr/local/bin/git reset --hard HEAD',TRUE);
+//			$this->git->execute('/usr/local/bin/git pull origin master',TRUE);
 		endif;
 		
 	}
