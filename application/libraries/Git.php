@@ -117,7 +117,7 @@ class Git {
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
 		} catch (Exception $e) {
-			return 'Ошибка при смене владельца';
+
 		}
 	}
 	
