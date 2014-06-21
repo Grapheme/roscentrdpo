@@ -15,13 +15,13 @@ class Git_interface extends MY_Controller {
 			$config['test_mode'] = FALSE;
 		endif;
 		$config['post_data'] = $this->input->post('payload');
-		$config['git_path'] = '/usr/bin/';
+		$config['git_path'] = '/usr/local/bin/';
 		$config['remote'] = 'origin';
 		$config['branch'] = $this->uri->segment(2);
-		$config['repository_name'] = 'beta';
-		$config['repository_id'] = 12582611;
-		$config['user_group'] = 'www-data';
-		$config['user_name'] = 'www-data';
+		$config['repository_name'] = 'roscentrdpo';
+		$config['repository_id'] = 21045095;
+		$config['user_group'] = 'rikardo';
+		$config['user_name'] = 'rikardo';
 		$config['set_log'] = TRUE;
 		
 		$this->load->library('git');
