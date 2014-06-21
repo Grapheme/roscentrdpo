@@ -1,3 +1,17 @@
+
+/*
+* Инструкция
+* 	см. https://gist.github.com/oodavid/1809044
+*	sudo chown -R имя владельца:группа владельца /ПУТЬ К ПРОЕКТУ
+*	sudo chmod -R 0744 /ПУТЬ К ПРОЕКТУ
+*	Вернуть требуемые права на папки, к примеру downloads 
+*	Проверить работу от имени владельца, к примеру www-data
+*	sudo --user=www-data git pull
+*
+*/
+
+
+
 <?php
 
 class Git {
