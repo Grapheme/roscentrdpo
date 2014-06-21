@@ -25,7 +25,7 @@ class Git_interface extends MY_Controller {
 		$this->git->init($config);
 		
 		if($this->uri->segment(3) == 'test'):
-			$this->git->testConnect('/usr/local/bin/ssh -T git@github.com');
+			$this->git->testConnect('/usr/bin/ssh -T git@github.com');
 			return TRUE;
 		elseif($this->uri->segment(3) == 'TSHZVixcD1cLGLSTObouk6Tmo3ChmyxD'):
 			$this->git->execute('/usr/local/bin/git reset --hard HEAD',TRUE);
