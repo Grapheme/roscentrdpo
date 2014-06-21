@@ -2,6 +2,8 @@
 
 class Git {
 	
+	private $CI;
+	
 	protected $test_mode;
 	
 	protected $post;
@@ -18,6 +20,7 @@ class Git {
 	
 	function __construct(){
 		
+		$this->CI = & get_instance();
 	}
 	
 	public function init($params){
@@ -113,9 +116,9 @@ class Git {
 			echo "\ncommand:\n".$command;
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
-			$this->config->set_item('log_threshold',2);
+			$this->CI->config->set_item('log_threshold',2);
 			log_message('info','Выполнилась комманда '.$command.' Дата выполнения: '.date("d.m.Y H:i:s"));
-			$this->config->set_item('log_threshold',0);
+			$this->CI->config->set_item('log_threshold',0);
 		endif;
 		return TRUE;
 	}
