@@ -94,7 +94,7 @@ class Git {
 		endif;
 		
 		try {
-			exec('chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path,$result,$returnCode);
+			exec('sudo chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path,$result,$returnCode);
 			echo "\nCommand: ".'chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path;
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
@@ -102,7 +102,7 @@ class Git {
 			throw new Exception('Ошибка при смене владельца');
 		}
 		try {
-			exec('chmod -R '.$mode.' '.getcwd().$path,$result,$returnCode);
+			exec('sudo chmod -R '.$mode.' '.getcwd().$path,$result,$returnCode);
 			echo "\nCommand: ".'chmod -R '.$mode.' '.getcwd().$path;
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
