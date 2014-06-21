@@ -1,3 +1,4 @@
+<?php
 
 /*
 * Инструкция
@@ -9,10 +10,6 @@
 *	sudo --user=www-data git pull
 *
 */
-
-
-
-<?php
 
 class Git {
 	
