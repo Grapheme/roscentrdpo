@@ -21,7 +21,6 @@ class Git_interface extends MY_Controller {
 		$config['repository_id'] = 21045095;
 		$config['user_group'] = 'rikardo';
 		$config['user_name'] = 'rikardo';
-		$config['access_mode'] = 0774;
 		$config['set_log'] = TRUE;
 		
 		$this->load->library('git');

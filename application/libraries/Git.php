@@ -41,7 +41,7 @@ class Git {
 		$this->branch = isset($params['branch']) ? $params['branch'] : 'master';
 		$this->user_group = isset($params['user_group']) ? $params['user_group'] : 'www-data';
 		$this->user_name = isset($params['user_name']) ? $params['user_name'] : 'www-data';
-		$this->access_mode = isset($params['access_mode']) ? $params['access_mode'] : 0744;
+		$this->access_mode = isset($params['access_mode']) ? $params['access_mode'] : 0774;
 		$this->project_path = isset($params['project_path']) ? $params['project_path'] : '';
 		$this->set_log = isset($params['set_log']) ? $params['set_log'] : TRUE;
 		
