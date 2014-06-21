@@ -164,9 +164,9 @@ class Git {
 			echo "\ncommand:\n".$this->git_path.'git pull '.$this->remote.' '.$this->branch;
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
-			$this->config->set_item('log_threshold',2);
+			$this->CI->config->set_item('log_threshold',2);
 			log_message('info','Выполнилась комманда '.$command.' Дата выполнения: '.date("d.m.Y H:i:s"));
-			$this->config->set_item('log_threshold',0);
+			$this->CI->config->set_item('log_threshold',0);
 		endif;
 		return TRUE;
 	}
