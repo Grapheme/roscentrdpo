@@ -101,7 +101,7 @@ class Git {
 	public function testConnect($command = 'ssh -T git@github.com'){
 		
 		try {
-			exec($command,$result,$returnCode);
+			exec($command.' 2>&1',$result,$returnCode);
 			echo "\nResult:\n"; print_r($result);
 			echo "\Code:\n"; print_r($returnCode);
 		} catch (Exception $e) {
