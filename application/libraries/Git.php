@@ -95,11 +95,17 @@ class Git {
 		
 		try {
 			exec('chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path,$result,$returnCode);
+			echo "\nCommand: ".'chown -R '.$this->user_name.':'.$this->user_group.' '.getcwd().$path;
+			echo "\nResult:\n"; print_r($result);
+			echo "\Code:\n"; print_r($returnCode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене владельца');
 		}
 		try {
 			exec('chmod -R '.$mode.' '.getcwd().$path,$result,$returnCode);
+			echo "\nCommand: ".'chmod -R '.$mode.' '.getcwd().$path;
+			echo "\nResult:\n"; print_r($result);
+			echo "\Code:\n"; print_r($returnCode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене прав доступа');
 		}
