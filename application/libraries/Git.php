@@ -103,6 +103,7 @@ class Git {
 		try {
 			exec($command,$result,$returnCode);
 			echo "\nResult:\n"; print_r($result);
+			echo "\Code:\n"; print_r($returnCode);
 		} catch (Exception $e) {
 			throw new Exception('Ошибка при смене владельца');
 		}
