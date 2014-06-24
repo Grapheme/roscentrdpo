@@ -44,7 +44,7 @@ class Git {
 		$this->branch = isset($params['branch']) ? $params['branch'] : 'master';
 		$this->user_group = isset($params['user_group']) ? $params['user_group'] : 'www-data';
 		$this->user_name = isset($params['user_name']) ? $params['user_name'] : 'www-data';
-		$this->access_mode = isset($params['access_mode']) ? $params['access_mode'] : 0774;
+		$this->access_mode = isset($params['access_mode']) ? $params['access_mode'] : '0774';
 		$this->project_path = isset($params['project_path']) ? $params['project_path'] : '';
 		$this->set_log = isset($params['set_log']) ? $params['set_log'] : TRUE;
 		
@@ -97,13 +97,16 @@ class Git {
 		endif;
 		
 		try {
-			chown(getcwd().$path, $this->user_name);
-			chgrp(getcwd().$path, $this->user_group);
+			//chown(getcwd().$path, $this->user_name);
+			//chgrp(getcwd().$path, $this->user_group);
+			system("/bin/chown -R ".$this->user_name." ".getcwd().$path);
+			system("/bin/chgrp -R ".$this->user_name." ".getcwd().$path);
 		} catch (Exception $e) {
 			return 'Ошибка при смене владельца';
 		}
 		try {
-			chmod(getcwd().$path,$mode);
+//			chmod(getcwd().$path,$mode);
+			system("/bin/chmod -R ".$mode." ".getcwd().$path);
 		} catch (Exception $e) {
 			 return 'Ошибка при смене прав доступа';
 		}
