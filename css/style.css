@@ -55,7 +55,7 @@ nav li a:hover { color: #fff; text-decoration: none; -webkit-box-shadow: 0 1px 7
 .rsep { background: #1874a8; background: -moz-linear-gradient(top, #1e87bd 0%, #136293 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e87bd), color-stop(100%,#136293)); background: -webkit-linear-gradient(top, #1e87bd 0%,#136293 100%); background: -o-linear-gradient(top, #1e87bd 0%,#136293 100%); background: -ms-linear-gradient(top, #1e87bd 0%,#136293 100%); background: linear-gradient(top, #1e87bd 0%,#136293 100%); }
 
 /* ==|== main block ====================================================== */
-p, ul li { max-width: 54em; }
+/*p, ul li { max-width: 54em; }*/
 
 #promo-banner { height: 300px; background: url('../img/businessman.png') top right no-repeat #eeeee2; margin-bottom: 7px; -webkit-box-shadow: 0 2px 5px #ccc; -moz-box-shadow: 0 2px 5px #ccc; box-shadow: 0 2px 5px #ccc; 
 	background: url("../img/businessman.png") no-repeat scroll right top #EEEEE2;
