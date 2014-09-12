@@ -1,3 +1,6 @@
+<?php
+    //$order['date'] = date("Y-m-d");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php $this->load->view('customer_interface/head');?>
@@ -59,7 +62,7 @@
 						<tr>
 							<th>№</th>
 							<th>Товары (работы, услуги)</th>
-							<th>Объем учебного плана, час</th>
+                            <?php if($order['date'] <= '2014-09-05'):?><th>Объем учебного плана, час</th><?php endif;?>
 							<th>Количество</th>
 							<th>Ед.</th>
 							<th>Цена</th>
@@ -71,7 +74,7 @@
 						<tr>
 							<td><?=$i+1;?></td>
 							<td>Обучение по курсу <?=$course[$i]['code'];?>. <?=$course[$i]['title'];?></td>
-							<td><?=$course[$i]['hours'];?></td>
+                            <?php if($order['date'] <= '2014-09-05'):?><td><?=$course[$i]['hours'];?></td><?php endif;?>
 							<td><?=$course[$i]['cnt'];?></td>
 							<td>чел.</td>
 							<td><?=$course[$i]['price']-$course[$i]['discount'];?></td>
@@ -235,6 +238,7 @@
 						</tbody>
 					</table>
 				</p>
+    <?php if($order['date'] >= '2014-09-05'):?>
                 <p class="center title">
                     <strong>Приложение №1 к договору № <?=number_order($order['number'],$order['year']);?></strong>
                 </p>
@@ -359,6 +363,7 @@
                     </tbody>
                 </table>
                 </p>
+    <?php endif;?>
 			</div>
 		</div>
 	</div>
