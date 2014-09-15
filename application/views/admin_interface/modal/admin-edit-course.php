@@ -1,4 +1,4 @@
-<?=form_open($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
+<?=form_open_multipart($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
 	<input type="hidden" id="idCourse" value="" name="icrs" />
 	<div id="editCourse" class="modal hide">
 		<div class="modal-header">
@@ -51,6 +51,12 @@
 						</label>
 					</div>
 				</div>
+                <div class="control-group">
+                    <label for="scanFile" class="control-label">Скан программы</label>
+                    <div class="controls">
+                        <input type="file" id="scanFile" class="input-file" name="programm_scan" size="30">
+                    </div>
+                </div>
 			</fieldset>
 		</div>
 		<div class="modal-footer">

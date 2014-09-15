@@ -336,7 +336,7 @@ class Admin_interface extends MY_Controller {
 	}
 	
 	public function references_courses(){
-		
+
 		$pagevar = array(
 			'description'	=> '',
 			'author'		=> '',
@@ -374,7 +374,8 @@ class Admin_interface extends MY_Controller {
 			redirect(uri_string());
 		endif;
 		if($this->input->post('esubmit')):
-			$_POST['esubmit'] = NULL;
+			$post = $_POST;
+            $post['esubmit'] = NULL;
 			$this->form_validation->set_rules('title',' ','required|trim');
 			$this->form_validation->set_rules('code',' ','required|trim');
 			$this->form_validation->set_rules('price',' ','trim');
@@ -384,10 +385,15 @@ class Admin_interface extends MY_Controller {
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка при сохранении. Не заполены необходимые поля.');
 			else:
-				if(!isset($_POST['view'])):
-					$_POST['view'] = 0;
+				if(!isset($post['view'])):
+                    $post['view'] = 0;
 				endif;
-				$this->coursesmodel->update_record($_POST);
+                if(!empty($_FILES) && $_FILES['programm_scan']['error'] == 0):
+                    $_FILES['programm_scan']['name'] = preg_replace('/.+(.)(\.)+/',date("Ymdhis")."\$2", $_FILES['programm_scan']['name']);
+                    $post['programm_scan'] = 'documents/lectures/scans/'.$_FILES['programm_scan']['name'];
+                    $this->fileupload('programm_scan',FALSE,'lectures/scans');
+                endif;
+				$this->coursesmodel->update_record($post);
 				$this->session->set_userdata('msgs','Информация по курсу успешно сохранена.');
 			endif;
 			redirect(uri_string());
@@ -3402,17 +3408,17 @@ class Admin_interface extends MY_Controller {
 		endif;
 		
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'report'		=> $this->fiztestresultsmodel->read_record($reptest),
-					'audience'		=> $this->physicalmodel->read_field($audience,'fio'),
-					'test'			=> array(),
-					'questions'		=> array(),
-					'answers'		=> array()
-			);
+            'description'	=> '',
+            'author'		=> '',
+            'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
+            'baseurl' 		=> base_url(),
+            'userinfo'		=> $this->user,
+            'report'		=> $this->fiztestresultsmodel->read_record($reptest),
+            'audience'		=> $this->physicalmodel->read_field($audience,'fio'),
+            'test'			=> array(),
+            'questions'		=> array(),
+            'answers'		=> array()
+        );
 		
 		$pagevar['report']['dataresult'] = unserialize($pagevar['report']['dataresult']);
 		$pagevar['test'] = $this->fizunionmodel->read_physical_testing($pagevar['report']['test'],$audience,$pagevar['report']['course']);
@@ -3457,7 +3463,7 @@ class Admin_interface extends MY_Controller {
 	public function fileupload($userfile,$overwrite,$catalog){
 		
 		$config['upload_path'] 		= './documents/'.$catalog.'/';
-		$config['allowed_types'] 	= 'doc|docx|xls|xlsx|txt|pdf';
+		$config['allowed_types'] 	= 'doc|docx|xls|xlsx|txt|pdf|png|jpg|jpeg';
 		$config['remove_spaces'] 	= TRUE;
 		$config['overwrite'] 		= $overwrite;
 		

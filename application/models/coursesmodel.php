@@ -41,6 +41,9 @@ class Coursesmodel extends CI_Model{
 		$this->db->set('price',$data['price']);
 		$this->db->set('hours',$data['hours']);
 		$this->db->set('view',$data['view']);
+        if (isset($data['programm_scan'])):
+            $this->db->set('programm_scan',$data['programm_scan']);
+        endif;
 		$this->db->where('id',(int)$data['icrs']);
 		$this->db->update('courses');
 		return $this->db->affected_rows();
