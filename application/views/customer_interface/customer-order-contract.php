@@ -287,6 +287,7 @@
                             <th>Фамилия, Имя, Отчество (при наличии) слушателя</th>
                             <th>Должность</th>
                             <th>№ телефона</th>
+                            <th>Место жительства слушателя</th>
                             <th>Наименование оказанных услуг</th>
                             <th>Объем учебного плана, час.</th>
                             <th>Цена, руб.</th>
@@ -299,6 +300,7 @@
                             <td><?=$record['lastname'].' '.$record['name'].' '.$record['middlename'];?></td>
                             <td><?=$record['position'];?></td>
                             <td><?=$record['personaphone'];?></td>
+                            <td><?=$record['address'];?></td>
                             <td><?=$record['ctitle'];?></td>
                             <td><?=$record['chours'];?></td>
                             <td><?=$record['сprice'];?></td>

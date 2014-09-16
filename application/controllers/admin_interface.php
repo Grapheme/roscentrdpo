@@ -2022,7 +2022,8 @@ class Admin_interface extends MY_Controller {
 		$pagevar['order']['paiddate'] = $this->operation_dot_date($pagevar['order']['paiddate']);
 		$pagevar['customer'] = $this->customersmodel->read_record($pagevar['order']['customer']);
 		$pagevar['title'] .= 'Договор № '.number_order($pagevar['order']['number'],$pagevar['order']['year']).' от '.$pagevar['order']['orderdate'].' года';
-		$this->load->view("customer_interface/customer-order-contract",$pagevar);
+
+        $this->load->view("customer_interface/customer-order-contract",$pagevar);
 	}
 	
 	public function act(){
