@@ -3149,6 +3149,7 @@ class Admin_interface extends MY_Controller {
 				$pagevar['dateend'] = '0000-00-00';
 			endif;
 		endif;
+        $pagevar['dateend_kostul'] = $pagevar['dateend'];
 		if($pagevar['dateend'] != "0000-00-00"):
 			$pagevar['dateend'] = preg_split("/[ ]+/",$this->split_date($pagevar['dateend']));
 		else:
