@@ -6,11 +6,16 @@
 <?php $this->load->view('customer_interface/head');?>
 <body>
 	<style type="text/css">
-		@media print {
-			body, p { font-family: Tahoma, sans-serif; font-size: 16px; line-height: 24px; margin-bottom: 14px; }
-            .page-break { page-break-after: always; }
-		}
-	</style>
+		/*@media print {*/
+			/*body, p { font-family: Tahoma, sans-serif; font-size: 16px; line-height: 24px; margin-bottom: 14px; }*/
+            /*.page-break { page-break-after: always; }*/
+		/*}*/
+        @media print {
+            .more {
+                page-break-after: always;
+            }
+        }
+    </style>
 	<div class="container-fluid" style="position: relative;">
 		<div class="row">
 			<div class="span12">
