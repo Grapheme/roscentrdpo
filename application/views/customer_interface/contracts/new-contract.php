@@ -192,6 +192,7 @@
     </tbody>
 </table>
 </p>
+<p class="page-break"> </p>
 <p class="center title">
     <strong>Приложение №1 к договору № <?=number_order($order['number'],$order['year']);?></strong>
 </p>
