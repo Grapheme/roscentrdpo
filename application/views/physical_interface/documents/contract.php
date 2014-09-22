@@ -8,7 +8,10 @@
 	<style type="text/css">
 		@media print {
 			body, p { font-family: Tahoma, sans-serif; font-size: 16px; line-height: 24px; margin-bottom: 14px; }
-            .page-break { page-break-after: always; }
+            .page-break {
+                page-break-after: always;
+                page-break-before: always;
+            }
         }
     </style>
 	<div class="container-fluid" style="position: relative;">
