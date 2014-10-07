@@ -192,6 +192,26 @@ class Users_interface extends MY_Controller{
 		$this->load->view("users_interface/centerdocs",$pagevar);
 	}
 	
+	public function cdocs(){
+		$pageid = $this->uri->segment(2);
+		$pagevar = array(
+			'title'			=> 'Документы центра',					
+			'description'	=> 'Нормативные документы центра, лицензии, уведомления, аккредитация',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+			'msgauth'		=> $this->session->userdata('msgauth')
+		);
+		$this->session->unset_userdata('msgauth');
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("users_interface/checkdocs/cdocs".$pageid,$pagevar);
+	}
+	
 	public function presentation(){
 		
 		$pagevar = array(

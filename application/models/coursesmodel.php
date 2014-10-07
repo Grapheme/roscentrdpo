@@ -88,7 +88,7 @@ class Coursesmodel extends CI_Model{
 	function read_view_records(){
 		
 		$this->db->where('view',1);
-		$this->db->order_by('sort,id');
+		$this->db->order_by('code,sort,id');
 		$query = $this->db->get('courses');
 		$data = $query->result_array();
 		if(count($data)>0) return $data;

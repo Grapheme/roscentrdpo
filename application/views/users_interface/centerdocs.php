@@ -14,6 +14,15 @@
 				</ul>
 				<div class="clear"> </div>
 				<ol>
+					<li><a href="/cdocs/1/">Организационно-правовое обеспечение образовательной деятельности</a></li>
+					<li><a href="/cdocs/2/">Организационная структура и система управления</a></li>
+					<li><a href="/cdocs/3/">Организация и материально-техническое обеспечение образовательного процесса</a></li>
+					<li><a href="/cdocs/4/">Кадровое обеспечение образовательного процесса</a></li>
+					<li><a href="/cdocs/5/">Итоги финансового года</a></li>
+					<li><a href="/cdocs/6/">Документы АНО ДПО «Южно-окружной центр повышения квалификации»</a></li>
+					<li><a href="/cdocs/7/">Нормативно-правовые акты</a></li>
+					<li><a href="/cdocs/8/">Учебные программы</a></li>
+					<!--
 					<li><a class="fancybox" rel="group2" href="<?=base_url();?>img/license.jpg" target="_blank">Лицензия</a> на право осуществления образовательной деятельности в сфере дополнительного профессионального образования</li>
 					<li>Типовой <a class="fancybox" rel="group2" target="_blank" href="<?php base_url(); ?>documents/dogovor_primer.pdf">договор</a></li>
 					<li><a class="fancybox" rel="group2" target="_blank" href="<?php base_url(); ?>documents/doverennost.jpg">Доверенность</a> на Климову О.В.</li>
@@ -38,6 +47,7 @@
 							</i>
 						</p>
 					</li>
+					-->
 				</ol>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>

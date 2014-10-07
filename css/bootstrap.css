@@ -282,6 +282,9 @@ p {
 p small {
   font-size: 11px;
   color: #999999;
+  line-height: 1.5em !important;
+  display: inline-block;
+  margin: 0.5em 0 0;
 }
 .lead {
   margin-bottom: 18px;

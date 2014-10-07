@@ -89,7 +89,7 @@
 											<td><?=nl2br($courses[$j]['note']);?></td>
 											<td class="centerized"><nobr><?= $courses[$j]['hours']; ?> ч.</nobr></td>
 											<td class="centerized">
-											<?php if($trends[$i]['id'] == 16 && in_array($courses[$j]['id'],array(46,47,49,50,53,55,56,57))):?>
+											<?php if ( false && $trends[$i]['id'] == 16 && in_array($courses[$j]['id'],array(46,47,49,50,53,55,56,57))):?>
 												<span style="color: #ff0000"><?= $courses[$j]['price']; ?> руб.</span>
 												<span class="old-price">2000 руб.</span>
 											<?php else:?>
