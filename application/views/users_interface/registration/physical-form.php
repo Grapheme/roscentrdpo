@@ -49,6 +49,27 @@
 				<legend>
 					<br/>
 				</legend>
+                <div class="control-group">
+                    <label for="postaddress" class="control-label">Серия паспорта</label>
+                    <div class="controls">
+                        <input type="text" class="span3 input-popover inpval" name="passport_seria" data-content="Введите серию Вашего паспорта" data-trigger="focus" data-placement="<?=POPUP_POSITION;?>" data-toggle="popover" data-original-title="Обязательное поле" value=""> <span class="badge badge-info">!</span>
+                        <span class="help-inline" style="display:none;">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="postaddress" class="control-label">Номер паспорта</label>
+                    <div class="controls">
+                        <input type="text" class="span3 input-popover inpval" name="passport_number" data-content="Введите номер Вашего паспорта" data-trigger="focus" data-placement="<?=POPUP_POSITION;?>" data-toggle="popover" data-original-title="Обязательное поле" value=""> <span class="badge badge-info">!</span>
+                        <span class="help-inline" style="display:none;">&nbsp;</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="postaddress" class="control-label">Кем и когда выдан паспорт</label>
+                    <div class="controls">
+                        <input type="text" class="span3 input-popover inpval" name="passport_data" data-content="Введите информацию о дате выдачи и кем выдвн Ваш паспорт" data-trigger="focus" data-placement="<?=POPUP_POSITION;?>" data-toggle="popover" data-original-title="Обязательное поле" value=""> <span class="badge badge-info">!</span>
+                        <span class="help-inline" style="display:none;">&nbsp;</span>
+                    </div>
+                </div>
 				<div class="control-group">
 					<label for="postaddress" class="control-label">Почтовый адрес</label>
 					<div class="controls">

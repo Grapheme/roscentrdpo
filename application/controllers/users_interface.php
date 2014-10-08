@@ -404,15 +404,15 @@ class Users_interface extends MY_Controller{
 		endif;
 		
 		$pagevar = array(
-				'title'			=> 'Оформление заявки на дистанционное образование для ФЛ.',
-				'description'	=> 'АНО ДПО Южно-окружной центр повышения квалификации и переподготовки кадров. Оформление заявки на дистанционное образование. Шаг 1.',
-				'author'		=> '',
-				'baseurl' 		=> base_url(),
-				'loginstatus'	=> $this->loginstatus,
-				'userinfo'		=> $this->user,
-				'msgs'			=> $this->session->userdata('msgs'),
-				'msgr'			=> $this->session->userdata('msgr'),
-				'msgauth'		=> $this->session->userdata('msgauth')
+            'title'			=> 'Оформление заявки на дистанционное образование для ФЛ.',
+            'description'	=> 'АНО ДПО Южно-окружной центр повышения квалификации и переподготовки кадров. Оформление заявки на дистанционное образование. Шаг 1.',
+            'author'		=> '',
+            'baseurl' 		=> base_url(),
+            'loginstatus'	=> $this->loginstatus,
+            'userinfo'		=> $this->user,
+            'msgs'			=> $this->session->userdata('msgs'),
+            'msgr'			=> $this->session->userdata('msgr'),
+            'msgauth'		=> $this->session->userdata('msgauth')
 		);
 		$this->session->unset_userdata('msgauth');
 		$this->session->unset_userdata('msgs');
@@ -426,6 +426,11 @@ class Users_interface extends MY_Controller{
 			$this->form_validation->set_rules('phones',' ','required|trim');
 			$this->form_validation->set_rules('postaddress',' ','required|trim');
 			$this->form_validation->set_rules('email',' ','required|valid_email|trim');
+
+			$this->form_validation->set_rules('passport_number',' ','required|trim');
+			$this->form_validation->set_rules('passport_seria',' ','required|trim');
+			$this->form_validation->set_rules('passport_data',' ','required|trim');
+
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Повторите ввод.');
 				redirect($this->uri->uri_string());

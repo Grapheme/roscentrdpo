@@ -16,12 +16,16 @@ class Physicalmodel extends CI_Model{
 	var $online			= '';
 	var $access			= 1;
 
+	var $passport_number = '';
+	var $passport_seria = '';
+	var $passport_data = '';
+
 	function __construct(){
 		parent::__construct();
 	}
 	
 	function insert_record($data){
-			
+
 		$this->login 			= $data['login'];
 		$this->password 		= $data['password'];
 		$this->cryptpassword 	= $data['cryptpassword'];
@@ -32,7 +36,11 @@ class Physicalmodel extends CI_Model{
 		$this->postaddress		= $data['postaddress'];
 		$this->email			= $data['email'];
 		$this->signupdate		= date("Y-m-d");
-		
+
+        $this->passport_number	= $data['passport_number'];
+        $this->passport_seria	= $data['passport_seria'];
+        $this->passport_data	= $data['passport_data'];
+
 		$this->db->insert('physical',$this);
 		return $this->db->insert_id();
 	}
@@ -98,7 +106,12 @@ class Physicalmodel extends CI_Model{
 		$this->db->set('inn',$data['inn']);
 		$this->db->set('postaddress',strip_tags($data['postaddress']));
 		$this->db->set('email',$data['email']);
-		$this->db->where('id',$id);
+
+		$this->db->set('passport_number',$data['passport_number']);
+		$this->db->set('passport_seria',$data['passport_seria']);
+		$this->db->set('passport_data',$data['passport_data']);
+
+        $this->db->where('id',$id);
 		
 		$this->db->update('physical');
 		return $this->db->affected_rows();

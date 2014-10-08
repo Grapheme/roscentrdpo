@@ -25,7 +25,31 @@
 						<p class="help-block">Петрову Ивану Сергеевичу</p>
 					</div>
 				</div>
-			<div class="control-group">
+
+            <div class="control-group">
+				<label for="inn" class="control-label">Серия паспорта</label>
+				<div class="controls">
+					<input type="text" id="passport_seria" class="span4 inpval" name="passport_seria" value="<?=$physical['passport_seria'];?>">
+					<span class="help-inline" style="display:none;">&nbsp;</span>
+				</div>
+			</div>
+            <div class="control-group">
+				<label for="inn" class="control-label">Номер паспорта</label>
+				<div class="controls">
+					<input type="text" id="passport_number" class="span4 inpval" name="passport_number" value="<?=$physical['passport_number'];?>">
+					<span class="help-inline" style="display:none;">&nbsp;</span>
+				</div>
+			</div>
+            <div class="control-group">
+				<label for="inn" class="control-label">Кем и когда выдан паспорт</label>
+				<div class="controls">
+					<input type="text" id="passport_data" class="span4 inpval" name="passport_data" value="<?=$physical['passport_data'];?>">
+					<span class="help-inline" style="display:none;">&nbsp;</span>
+				</div>
+			</div>
+
+
+            <div class="control-group">
 				<label for="inn" class="control-label">ИНН</label>
 				<div class="controls">
 					<input type="text" id="inn" class="span4 inpval digital" name="inn" value="<?=$physical['inn'];?>">

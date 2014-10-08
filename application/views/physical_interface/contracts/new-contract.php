@@ -150,6 +150,15 @@
         <td>АНО ДПО «Южно-окружной центр повышения квалификации»</td>
         <td><?=$customer['fio'];?></td>
     </tr>
+<?php if(!empty($customer['passport_number'])):?>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            паспорт серия <u><?=$customer['passport_seria'];?></u> и №<u><?=$customer['passport_number'];?></u>,
+            выдан <u><?=$customer['passport_data'];?></u>
+        </td>
+    </tr>
+<?php endif; ?>
     <tr>
         <td>ИНН: 6162990031</td>
         <td>ИНН: <?=$customer['inn'];?></td>
@@ -267,6 +276,15 @@ endfor;
         <td>АНО ДПО «Южно-окружной центр повышения квалификации»</td>
         <td><?=$customer['fio'];?></td>
     </tr>
+<?php if(!empty($customer['passport_number'])):?>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            паспорт серия <u><?=$customer['passport_seria'];?></u> и №<u><?=$customer['passport_number'];?></u>,
+            выдан <u><?=$customer['passport_data'];?></u>
+        </td>
+    </tr>
+<?php endif; ?>
     <tr>
         <td>ИНН: 6162990031</td>
         <td>ИНН: <?=$customer['inn'];?></td>
