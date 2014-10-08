@@ -37,7 +37,7 @@ $route['contacts'] = "users_interface/contacts";
 $route['information'] = "users_interface/information";
 $route['reviews'] = "users_interface/reviews";
 $route['centerdocs'] = "users_interface/centerdocs";
-$route['cdocs/:num'] = "users_interface/cdocs/";
+$route['cdocs/:num'] = "users_interface/cdocs";
 $route['presentation'] = "users_interface/presentation";
 $route['news'] = "users_interface/news";
 

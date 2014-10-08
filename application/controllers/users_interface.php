@@ -866,7 +866,7 @@ class Users_interface extends MY_Controller{
 		return $ret;
 	}
 
-	private function getCoursesList($courses){
+    public function getCoursesList($courses){
 		
 		$this->load->model('curriculums');
 		for($i=0;$i<count($courses);$i++):

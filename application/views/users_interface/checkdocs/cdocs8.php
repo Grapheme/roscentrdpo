@@ -12,9 +12,29 @@
 					<strong>Подготовка проектной документации (15 курсов)</strong><br>     
 					Согласно  Приказу Министерства регионального развития РФ  от 30.12.2009 г № 624  
 				</p>
+
+                <?php
+                $this->load->model('coursesmodel');
+                if ($courses = $this->coursesmodel->read_view_records()):
+                    $user_interface = new Users_interface();
+                    $courses = $user_interface->getCoursesList($courses);
+                endif;
+                ?>
 				<ul>
-					<li>П-01 <a href="#">Схемы планировочной организации земельного участка</a></li>
-				</ul>
+                <?php foreach ($courses as $course): ?>
+                    <li>
+                        <?= $course['code'] ?>
+                        <?php if ($course['curriculum_exist'] !== FALSE): ?>
+                            <a target="_blank" href="<?= site_url('catalog/courses/curriculum?id=' . $course['curriculum_exist']); ?>"
+                               class="">
+                                <?= $course['title']; ?>
+                            </a>
+                        <?php else: ?>
+                            <?= $course['title']; ?>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>
 			<?php $this->load->view('users_interface/rightbarcus');?>
