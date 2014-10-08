@@ -68,7 +68,7 @@
 							<td>Дата итогового тестирования</td>
 							<td>%</td>
 						</tr>
-					<?php for($i=0;$i<count($courses);$i++):?>	
+					<?php for($i=0;$i<count($courses);$i++):?>
 						<tr>
 							<td><?=$i+1;?></td>
 							<td><?=$courses[$i]['lastname'].' '.$courses[$i]['name'].' '.$courses[$i]['middlename'];?></td>
