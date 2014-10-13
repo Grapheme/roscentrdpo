@@ -7,34 +7,44 @@
 		<div class="row">
 			<div class="span12">
 				<h1 class="h1-submenu">Учебные программы</h1>
+<?php
+    $this->load->model(array('coursesmodel','trendsmodel'));
+    require_once('application/libraries/Plural_words.php');
+    $plural_words = new Plural_words();
+    $trends_list = $this->trendsmodel->read_view_records();
+    if ($courses_list = $this->coursesmodel->read_view_records()):
+        $user_interface = new Users_interface();
+        $courses_list = $user_interface->getCoursesList($courses_list);
+    endif;
+    $courses = $trends = array();
+    foreach($trends_list as $trend):
+        $trends[$trend['id']]= $trend['title'];
+    endforeach;
+    foreach($courses_list as $course):
+        $courses[$course['trend']][] = $course;
+    endforeach;
+?>
 				<div class="clear"> </div>
+        <?php foreach($trends as $trend_id => $trend_title): ?>
+            <?php if(isset($courses[$trend_id]) && !empty($courses[$trend_id])):?>
 				<p>
-					<strong>Подготовка проектной документации (15 курсов)</strong><br>     
+					<strong><?= $trend_title ?> (<?=count($courses[$trend_id]);?> <?= $plural_words->pluralCourses($courses[$trend_id]) ?>)</strong><br>
 					Согласно  Приказу Министерства регионального развития РФ  от 30.12.2009 г № 624  
 				</p>
-
-                <?php
-                $this->load->model('coursesmodel');
-                if ($courses = $this->coursesmodel->read_view_records()):
-                    $user_interface = new Users_interface();
-                    $courses = $user_interface->getCoursesList($courses);
-                endif;
-                ?>
-				<ul>
-                <?php foreach ($courses as $course): ?>
+                <ul>
+                <?php foreach ($courses[$trend_id] as $course): ?>
                     <li>
                         <?= $course['code'] ?>
-                        <?php if ($course['curriculum_exist'] !== FALSE): ?>
-                            <a target="_blank" href="<?= site_url('catalog/courses/curriculum?id=' . $course['curriculum_exist']); ?>"
-                               class="">
-                                <?= $course['title']; ?>
-                            </a>
+                        <?php if (!empty($course['programm_scan'])): ?>
+                            <a target="_blank" href="<?=base_url($course['programm_scan']);?>" class=""><?= $course['title']; ?></a>
                         <?php else: ?>
                             <?= $course['title']; ?>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
                 </ul>
+            <?php endif;?>
+        <?php endforeach;?>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>
 			<?php $this->load->view('users_interface/rightbarcus');?>
