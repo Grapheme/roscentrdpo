@@ -217,23 +217,31 @@
 Приложение к договору № <?=number_order($order['number'],$order['year']);?> о нижеследующем:
 </p>
 <?php
-$info = $this->unionmodel->read_fullinfo_audience($this->uri->segment(6));
-$admin = new Admin_interface();
-for($i=0;$i<count($info);$i++):
-    if($info[$i]['status']):
-        $info[$i]['dateover'] = $admin->operation_dot_date($info[$i]['dateover']);
-    else:
-        $info[$i]['dateover'] = '---';
-    endif;
-    $info[$i]['orderdate'] = $admin->operation_dot_date($info[$i]['orderdate']);
-    if($info[$i]['paid']):
-        $info[$i]['paiddate'] = $admin->operation_dot_date($info[$i]['paiddate']);
-    else:
-        $info[$i]['paiddate'] = '---';
-    endif;
-    $info[$i]['userpaiddate'] = $admin->operation_dot_date($info[$i]['userpaiddate']);
-endfor;
+$info = array();
+if($this->session->userdata('utype') == 'adm'):
+    $info = $this->unionmodel->read_fullinfo_audience($this->uri->segment(5));
+elseif($this->session->userdata('utype') == 'zak'):
+    $info = $this->unionmodel->read_fullinfo_audience($this->uri->segment(6));
+endif;
+if($info):
+    $controller = new MY_Controller();
+    for($i=0;$i<count($info);$i++):
+        if($info[$i]['status']):
+            $info[$i]['dateover'] = $controller->operation_dot_date($info[$i]['dateover']);
+        else:
+            $info[$i]['dateover'] = '---';
+        endif;
+        $info[$i]['orderdate'] = $controller->operation_dot_date($info[$i]['orderdate']);
+        if($info[$i]['paid']):
+            $info[$i]['paiddate'] = $controller->operation_dot_date($info[$i]['paiddate']);
+        else:
+            $info[$i]['paiddate'] = '---';
+        endif;
+        $info[$i]['userpaiddate'] = $controller->operation_dot_date($info[$i]['userpaiddate']);
+    endfor;
+endif;
 ?>
+
 <table class="table table-bordered">
     <thead>
     <tr>

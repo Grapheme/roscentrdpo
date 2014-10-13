@@ -83,5 +83,22 @@ class MY_Controller extends CI_Controller {
 		endfor;
 		return $summa;
 	}
+
+    function operation_date($field){
+
+        $list = preg_split("/-/",$field);
+        $nmonth = $this->months[$list[1]];
+        $pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
+        $replacement = "\$5 $nmonth \$1 г.";
+        return preg_replace($pattern, $replacement,$field);
+    }
+
+    function operation_dot_date($field){
+
+        $list = preg_split("/-/",$field);
+        $pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
+        $replacement = "\$5.$3.\$1";
+        return preg_replace($pattern, $replacement,$field);
+    }
 }
 ?>
