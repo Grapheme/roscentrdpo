@@ -217,7 +217,7 @@
 Приложение к договору № <?=number_order($order['number'],$order['year']);?> о нижеследующем:
 </p>
 <?php
-$info = $this->unionmodel->read_fullinfo_audience($this->uri->segment(5));
+$info = $this->unionmodel->read_fullinfo_audience($this->uri->segment(6));
 $admin = new Admin_interface();
 for($i=0;$i<count($info);$i++):
     if($info[$i]['status']):
