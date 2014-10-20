@@ -1696,19 +1696,17 @@ class Admin_interface extends MY_Controller {
 			$this->session->set_userdata('msgr','Не возможно получить доступ к отчету.');
 			redirect('admin-panel/messages/orders/id/'.$order.'/testing');
 		endif;
-		
-		
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'info'			=> $this->unionmodel->read_fullinfo_report($course,$order,$audience),
-					'test'			=> array(),
-					'questions'		=> array(),
-					'answers'		=> array()
-			);
+            'description'	=> '',
+            'author'		=> '',
+            'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
+            'baseurl' 		=> base_url(),
+            'userinfo'		=> $this->user,
+            'info'			=> $this->unionmodel->read_fullinfo_report($course,$order,$audience),
+            'test'			=> array(),
+            'questions'		=> array(),
+            'answers'		=> array()
+        );
 		$pagevar['info']['dateover'] = $this->operation_date($pagevar['info']['dateover']);
 		$this->load->view("admin_interface/test-report-short",$pagevar);
 	}
@@ -3446,16 +3444,16 @@ class Admin_interface extends MY_Controller {
 			redirect('admin-panel/messages/physical-orders/id/'.$order.'/testing');
 		endif;
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
-					'baseurl' 		=> base_url(),
-					'userinfo'		=> $this->user,
-					'info'			=> $this->fizunionmodel->read_fullinfo_report($course,$audience),
-					'test'			=> array(),
-					'questions'		=> array(),
-					'answers'		=> array()
-			);
+            'description'	=> '',
+            'author'		=> '',
+            'title'			=> 'АНО ДПО | Отчет о итоговом тестировании',
+            'baseurl' 		=> base_url(),
+            'userinfo'		=> $this->user,
+            'info'			=> $this->fizunionmodel->read_fullinfo_report($course,$audience),
+            'test'			=> array(),
+            'questions'		=> array(),
+            'answers'		=> array()
+        );
 		$pagevar['info']['dateover'] = $this->operation_date($pagevar['info']['dateover']);
 		$this->load->view("admin_interface/physical/report-short",$pagevar);
 	}
@@ -3489,12 +3487,16 @@ class Admin_interface extends MY_Controller {
 	}
 
 	public function operation_date($field){
-			
-		$list = preg_split("/-/",$field);
-		$nmonth = $this->months[$list[1]];
-		$pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
-		$replacement = "\$5 $nmonth \$1 г."; 
-		return preg_replace($pattern, $replacement,$field);
+
+        if (!empty($field)):
+            $list = preg_split("/-/",$field);
+            $nmonth = $this->months[$list[1]];
+            $pattern = "/(\d+)(-)(\w+)(-)(\d+)/i";
+            $replacement = "\$5 $nmonth \$1 г.";
+            return preg_replace($pattern, $replacement,$field);
+        else:
+            return '';
+        endif;
 	}
 	
 	public function split_date($field){

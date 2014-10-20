@@ -71,10 +71,10 @@ class Fizunionmodel extends CI_Model{
 	
 	function read_fullinfo_report($course,$physical){
 		
-		$query = "SELECT fizcourse.*,physical.fio,physical.email,courses.code AS ccode,courses.title AS ctitle,tests.title AS ttitle FROM fizcourse INNER JOIN physical ON fizcourse.physical = physical.id INNER JOIN fizcourseorder ON fizcourse.course=fizcourseorder.id,courses,tests WHERE fizcourse.id = $course AND fizcourse.physical = $physical AND fizcourseorder.course = courses.id AND fizcourse.status = 1 AND courses.id = tests.course GROUP BY fizcourse.id ORDER BY fizcourse.id ";
+		$query = "SELECT fizcourse.*,physical.fio,physical.email,courses.code AS ccode,courses.title AS ctitle,tests.title AS ttitle FROM fizcourse INNER JOIN physical ON fizcourse.physical = physical.id INNER JOIN fizcourseorder ON fizcourse.course=fizcourseorder.id,courses,tests WHERE fizcourse.id = $course AND fizcourse.physical = $physical AND fizcourseorder.course = courses.id AND fizcourse.status = 1 AND courses.id = tests.course GROUP BY fizcourse.id ORDER BY fizcourse.id";
 		$query = $this->db->query($query);
 		$data = $query->result_array();
-		if(isset($data[40])) return $data[0];
+		if(isset($data[0])) return $data[0];
 		return NULL;
 	}
 	
