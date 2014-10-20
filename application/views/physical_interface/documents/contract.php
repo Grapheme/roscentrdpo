@@ -18,7 +18,17 @@
                 if($order['date'] <= '2014-09-05'):
                     $this->load->view('physical_interface/contracts/old-contract');
                 else:
-                    $this->load->view('physical_interface/contracts/new-contract');
+                    $passport_data = '';
+                    if(!empty($customer['passport_number'])):
+                        $passport_data = ' паспорт серия: <u>'.$customer['passport_seria'].' '.$customer['passport_number'].'</u>, выдан <u>'.$customer['passport_data'].'</u>';
+                        $passport_data .= ', проживающий по адресу <u>'.$customer['postaddress'].'</u>';
+                    endif;
+                    $this->load->view('physical_interface/contracts/new-contract',compact('passport_data'));
+                    if ($order['date'] <= '2014-09-01'):
+                        $this->load->view('physical_interface/contracts/new-contract-extend-before',compact('passport_data'));
+                    else:
+                        $this->load->view('physical_interface/contracts/new-contract-extend-after',compact('passport_data'));
+                    endif;
                 endif;
             ?>
 			</div>
