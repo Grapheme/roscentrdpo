@@ -283,10 +283,6 @@ class Admin_interface extends MY_Controller {
             endif;
         endforeach;
         $pagevar['categories'] = $literature_categories;
-
-        print_r($this->literature_categories->getAll());
-        exit;
-
         $this->session->unset_userdata('msgs');
         $this->session->unset_userdata('msgr');
         $this->load->view("admin_interface/literature/categories/index",$pagevar);
