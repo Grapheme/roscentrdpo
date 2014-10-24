@@ -108,7 +108,7 @@ $route['audience/courses/current/course/:num/lectures/testing/id/:num']			= "aud
 $route['audience/courses/current/course/:num/lectures/final-testing/id/:num'] 	= "audience_interface/audience_testing";
 $route['audience/courses/:num/test-report/id/:num'] 							= "audience_interface/audience_test_report";
 
-$route['audience/literature']					                                = "audience_interface/literature";
+$route['audience/courses/literature']					                                = "audience_interface/literature";
 /*==========================================================  ordering  ===================================================*/
 
 $route['customer/registration/ordering/step/1']	= "customer_interface/registration_ordering_step1";
