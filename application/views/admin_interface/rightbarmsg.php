@@ -4,6 +4,7 @@
 			<li class="nav-header">Справочники</li>
 			<li num="trends"><?=anchor('admin-panel/references/trends','Направления');?></li>
 			<li num="courses"><?=anchor('admin-panel/references/courses','Курсы');?></li>
+            <li num="literatures"><?=anchor('admin-panel/references/literatures','Литература');?></li>
 			<li class="nav-header">Юридические лица</li>
 			<li num="customer"><?=anchor('admin-panel/users/customer','Заказчики');?></li>
 			<li num="audience"><?=anchor('admin-panel/users/audience','Слушатели');?></li>

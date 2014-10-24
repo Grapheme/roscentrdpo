@@ -91,6 +91,7 @@ $route['physical/courses/current/course/:num/lectures/testing/id/:num']			= "phy
 $route['physical/courses/current/course/:num/lectures/final-testing/id/:num'] 	= "physical_interface/testing";
 $route['physical/courses/:num/test-report/id/:num'] 							= "physical_interface/test_report";
 
+$route['physical/courses/literature']			                                = "physical_interface/literature";
 /******************************************************** AUDIENCE INTRERFACE ***********************************************/
 
 $route['audience/view/profile']													= "audience_interface/audience_profile";
@@ -107,6 +108,7 @@ $route['audience/courses/current/course/:num/lectures/testing/id/:num']			= "aud
 $route['audience/courses/current/course/:num/lectures/final-testing/id/:num'] 	= "audience_interface/audience_testing";
 $route['audience/courses/:num/test-report/id/:num'] 							= "audience_interface/audience_test_report";
 
+$route['audience/literature']					                                = "audience_interface/literature";
 /*==========================================================  ordering  ===================================================*/
 
 $route['customer/registration/ordering/step/1']	= "customer_interface/registration_ordering_step1";
@@ -133,8 +135,17 @@ $route['admin-panel/references/trends/delete-trend/:num']		= "admin_interface/re
 /*==========================================================  course  ====================================================*/
 $route['admin-panel/references/courses']						= "admin_interface/references_courses";
 $route['admin-panel/references/courses/delete-course/:num']		= "admin_interface/references_delete_course";
+/*========================================================= literature  ===================================================*/
+$route['admin-panel/references/literatures']					    = "admin_interface/literatures_categories";
+$route['admin-panel/references/literatures/category/store']		    = "admin_interface/literatures_category_store";
+$route['admin-panel/references/literatures/category/update']	    = "admin_interface/literatures_category_update";
+$route['admin-panel/references/literatures/category/delete/:num']	= "admin_interface/literatures_category_delete";
 
-/*==========================================================  chapters  ====================================================*/
+$route['admin-panel/references/literatures/:num/documents']		        = "admin_interface/literature_documents";
+$route['admin-panel/references/literatures/:num/document/store']	    = "admin_interface/literature_document_store";
+$route['admin-panel/references/literatures/:num/document/update']	    = "admin_interface/literature_document_update";
+$route['admin-panel/references/literatures/:num/document/delete/:num']	= "admin_interface/literature_document_delete";
+/*=========================================================  chapters  ===================================================*/
 $route['admin-panel/references/trend/:num/course/:num']										= "admin_interface/references_chapters";
 $route['admin-panel/references/trend/:num/course/:num/delete-lecture/:num']					= "admin_interface/references_delete_lecture";
 $route['admin-panel/references/trend/:num/course/:num/delete-chapter/:num']					= "admin_interface/references_delete_chapter";

@@ -253,7 +253,158 @@ class Admin_interface extends MY_Controller {
 			show_404();
 		endif;
 	}
-	/******************************************************** references ****************************************************/
+	/**********************************************************************************************/
+	/************************************ literature **********************************************/
+	/************************************ categories **********************************************/
+    public function literatures_categories(){
+
+        $pagevar = array(
+            'description'	=> '',
+            'author'		=> '',
+            'title'			=> 'АНО ДПО | Категории летературы',
+            'baseurl' 		=> base_url(),
+            'userinfo'		=> $this->user,
+            'categories'	=> array(),
+            'msgs'			=> $this->session->userdata('msgs'),
+            'msgr'			=> $this->session->userdata('msgr')
+        );
+        $this->load->model(array('literature_categories','literature_documents'));
+        $literature_categories = array();
+        $literature_documents = array();
+        foreach((array)$this->literature_documents->getAll() as $literature_document):
+            $literature_documents[$literature_document['literature_category_id']][] = $literature_document;
+        endforeach;
+        foreach((array)$this->literature_categories->getAll() as $literature_category):
+            $literature_categories[$literature_category['id']]['title'] = $literature_category['title'];
+            if (isset($literature_documents[$literature_category['id']])):
+                $literature_categories[$literature_category['id']]['documents'] = $literature_documents[$literature_category['id']];
+            else:
+                $literature_categories[$literature_category['id']]['documents'] = array();
+            endif;
+        endforeach;
+        $pagevar['categories'] = $literature_categories;
+        $this->session->unset_userdata('msgs');
+        $this->session->unset_userdata('msgr');
+        $this->load->view("admin_interface/literature/categories/index",$pagevar);
+    }
+
+    public function literatures_category_store(){
+
+        if($this->postDataValidation('literature_category_store')):
+            $this->load->model('literature_categories');
+            $this->literature_categories->insertRecord(array('title'=>$this->input->post('title')));
+            $this->session->set_userdata('msgs','Категория литературы создана');
+        else:
+            $this->session->set_userdata('msgr',validation_errors());
+        endif;
+        redirect('admin-panel/references/literatures');
+    }
+
+    public function literatures_category_update(){
+
+        if($this->postDataValidation('literature_category_update')):
+            $this->load->model('literature_categories');
+            $this->literature_categories->updateRecord(array('id'=>$this->input->post('id'),'title'=>$this->input->post('title')));
+            $this->session->set_userdata('msgs','Категория литературы сохранена');
+        else:
+            $this->session->set_userdata('msgr',validation_errors());
+        endif;
+        redirect('admin-panel/references/literatures');
+    }
+
+    public function literatures_category_delete(){
+
+        $this->load->model(array('literature_categories','literature_documents'));
+        foreach((array)$this->literature_documents->getWhere(NULL,array('literature_category_id'=>$this->uri->segment(6)),TRUE) as $document):
+            $this->filedelete(realpath($document['file_path']));
+        endforeach;
+        $this->literature_documents->delete(NULL,array('literature_category_id'=>$this->uri->segment(6)));
+        $this->literature_categories->delete($this->uri->segment(6));
+        $this->session->set_userdata('msgs','Категория удалена');
+        redirect('admin-panel/references/literatures');
+    }
+    /************************************ documents ************************************************/
+    public function literature_documents(){
+
+        $this->load->model('literature_documents');
+        $pagevar = array(
+            'description'	=> '',
+            'author'	    => '',
+            'title'		    => 'АНО ДПО | Документы летературы',
+            'baseurl' 	    => base_url(),
+            'userinfo'	    => $this->user,
+            'documents'	    => $this->literature_documents->getWhere(NULL,array('literature_category_id'=>$this->uri->segment(4)),TRUE),
+            'msgs'			=> $this->session->userdata('msgs'),
+            'msgr'			=> $this->session->userdata('msgr')
+        );
+        $this->session->unset_userdata('msgs');
+        $this->session->unset_userdata('msgr');
+        $this->load->view("admin_interface/literature/documents/index",$pagevar);
+    }
+
+    public function literature_document_store(){
+
+        if($this->postDataValidation('literature_document_store')):
+            $this->load->model('literature_documents');
+            $insert = array(
+                'literature_category_id'=>$this->input->post('literature_category_id'),
+                'title'=>$this->input->post('title'),
+                'file_path' => '','file_name' => '','file_type' => '','file_size' => '',
+            );
+            if(!empty($_FILES) && $_FILES['document']['error'] == 0):
+                $insert['file_name'] = $_FILES['document']['name'];
+                $insert['file_type'] = $_FILES['document']['type'];
+                $insert['file_size'] = $_FILES['document']['size'];
+                $_FILES['document']['name'] = preg_replace('/.+(.)(\.)+/',date("Ymdhis")."\$2", $_FILES['document']['name']);
+                $insert['file_path'] = 'documents/literatures/'.$_FILES['document']['name'];
+                $this->fileupload('document',FALSE,'literatures');
+            endif;
+            $this->literature_documents->insertRecord($insert);
+            $this->session->set_userdata('msgs','Документ загружен');
+        else:
+            $this->session->set_userdata('msgr',validation_errors());
+        endif;
+        redirect('admin-panel/references/literatures/'.$this->input->post('literature_category_id').'/documents');
+    }
+
+    public function literature_document_update(){
+
+        if($this->postDataValidation('literature_document_update')):
+            $this->load->model('literature_documents');
+            $update = array(
+                'id'=>$this->input->post('id'),
+                'title'=>$this->input->post('title')
+            );
+            if($oldDocument = $this->literature_documents->value($this->input->post('id'),'file_path')):
+                $this->filedelete(realpath($oldDocument));
+            endif;
+            if(!empty($_FILES) && $_FILES['document']['error'] == 0):
+                $update['file_name'] = $_FILES['document']['name'];
+                $update['file_type'] = $_FILES['document']['type'];
+                $update['file_size'] = $_FILES['document']['size'];
+                $_FILES['document']['name'] = preg_replace('/.+(.)(\.)+/',date("Ymdhis")."\$2", $_FILES['document']['name']);
+                $update['file_path'] = 'documents/literatures/'.$_FILES['document']['name'];
+                $this->fileupload('document',FALSE,'literatures');
+            endif;
+            $this->literature_documents->updateRecord($update);
+            $this->session->set_userdata('msgs','Документ обновлен');
+        else:
+            $this->session->set_userdata('msgr',validation_errors());
+        endif;
+        redirect('admin-panel/references/literatures/'.$this->input->post('literature_category_id').'/documents');
+    }
+
+    public function literature_document_delete(){
+
+        $this->load->model('literature_documents');
+        if($document = $this->literature_documents->value($this->uri->segment(7),'file_path')):
+            $this->filedelete(realpath($document));
+        endif;
+        $this->literature_documents->delete($this->uri->segment(7));
+        $this->session->set_userdata('msgs','Документ удален');
+        redirect('admin-panel/references/literatures/'.$this->uri->segment(4).'/documents');
+    }
+	/**************************************************** references ****************************************************/
 	public function references_trends(){
 		
 		$pagevar = array(
@@ -658,8 +809,6 @@ class Admin_interface extends MY_Controller {
 						$document = $this->lecturesmodel->read_field($_POST['idlec'],'document');
 						$this->filedelete($document);
 					endif;
-				else:
-					$_POST['document'] = '';
 				endif;
 				$oldnumber = $this->lecturesmodel->read_field($_POST['idlec'],'number');
 				if($oldnumber != $_POST['number']):

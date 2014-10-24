@@ -11,7 +11,24 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	/*************************************************************************************************************/
-	
+
+    public function postDataValidation($rules){
+
+        $this->load->library('form_validation');
+        return $this->form_validation->run($rules);
+    }
+
+    public function filedelete($file = NULL){
+
+        if(!is_null($file) && is_file($file)):
+            @unlink($file);
+            return TRUE;
+        else:
+            return FALSE;
+        endif;
+    }
+	/*************************************************************************************************************/
+
 	public function pagination($url,$uri_segment,$total_rows,$per_page){
 		
 		$this->load->library('pagination');

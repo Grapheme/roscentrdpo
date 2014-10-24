@@ -993,7 +993,43 @@ class Physical_interface extends MY_Controller {
 	}
 	
 	/******************************************************************************************************************/
-	
+    public function literature(){
+
+        $pagevar = array(
+            'description'	=> '',
+            'author'		=> '',
+            'title'			=> 'АНО ДПО Южно-окружной центр повышения квалификации и переподготовки кадров | Литература',
+            'baseurl' 		=> base_url(),
+            'loginstatus'	=> $this->loginstatus,
+            'userinfo'		=> $this->user,
+            'literature'	=> array(),
+            'customer'		=> '',
+            'msgs'			=> $this->session->userdata('msgs'),
+            'msgr'			=> $this->session->userdata('msgr')
+        );
+        $this->session->unset_userdata('msgs');
+        $this->session->unset_userdata('msgr');
+
+
+        $this->load->model(array('literature_categories','literature_documents'));
+        $literature_categories = array();
+        $literature_documents = array();
+        foreach((array)$this->literature_documents->getAll() as $literature_document):
+            $literature_documents[$literature_document['literature_category_id']][] = $literature_document;
+        endforeach;
+        foreach((array)$this->literature_categories->getAll() as $literature_category):
+            $literature_categories[$literature_category['id']]['title'] = $literature_category['title'];
+            if (isset($literature_documents[$literature_category['id']])):
+                $literature_categories[$literature_category['id']]['documents'] = $literature_documents[$literature_category['id']];
+            else:
+                $literature_categories[$literature_category['id']]['documents'] = array();
+            endif;
+        endforeach;
+        $pagevar['literature'] = $literature_categories;
+        $this->load->view("physical_interface/literature",$pagevar);
+    }
+	/******************************************************************************************************************/
+
 	public function randomPassword($length,$allow="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789"){
 	
 		$i = 1;
