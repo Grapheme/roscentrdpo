@@ -42,8 +42,12 @@
 				<?= form_close(); ?>
 			<? endif;?>
 				<div id="top-contacts">
+					<!--
 					8 800 707-00-97 <br/>
 					<span class="desc">Звонок из всех регионов России бесплатно</span>
+					-->
+					(863) 246-43-54 <br/>
+					<span class="desc">Телефон для справок и консультаций</span>
 				</div>
 			</div>
 		</div>
