@@ -284,7 +284,7 @@ class Admin_interface extends MY_Controller {
         endforeach;
         $pagevar['categories'] = $literature_categories;
 
-        print_r($pagevar['categories']);
+        print_r($this->literature_categories->getAll());
         exit;
 
         $this->session->unset_userdata('msgs');
