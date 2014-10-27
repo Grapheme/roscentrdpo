@@ -3610,18 +3610,17 @@ class Admin_interface extends MY_Controller {
 	/******************************************************** functions ******************************************************/
 	
 	public function fileupload($userfile,$overwrite,$catalog){
-		
+
 		$config['upload_path'] 		= './documents/'.$catalog.'/';
 		$config['allowed_types'] 	= 'doc|docx|xls|rtf|xlsx|txt|pdf|png|jpg|jpeg';
 		$config['remove_spaces'] 	= TRUE;
 		$config['overwrite'] 		= $overwrite;
-		
+
 		$this->load->library('upload',$config);
-		
 		if(!$this->upload->do_upload($userfile)):
 			return FALSE;
 		endif;
-		
+
 		return TRUE;
 	}
 
