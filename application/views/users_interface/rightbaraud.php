@@ -5,7 +5,7 @@
 			<li class="nav-header">Личный кабинет</li>
 			<li num="current"><?=anchor('audience/courses/current','Мои текущие курсы');?></li>
 			<li num="completed"><?=anchor('audience/courses/completed','Пройденные курсы');?></li>
-			<li num="literature"><?=anchor('audience/courses/literature','Литература');?></li>
+			<li num="literature"><?=anchor('audience/courses/literature','Электронная библиотека');?></li>
 			<li class="nav-header">Настройка</li>
 			<li num="profile"><?=anchor('audience/view/profile','Регистрационные данные');?></li>
 		</ul>

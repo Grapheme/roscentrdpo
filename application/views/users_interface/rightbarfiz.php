@@ -5,7 +5,7 @@
 			<li class="nav-header">Личный кабинет</li>
 			<li num="current"><?=anchor('physical/courses/current','Мои текущие курсы');?></li>
 			<li num="completed"><?=anchor('physical/courses/completed','Пройденные курсы');?></li>
-            <li num="literature"><?=anchor('physical/courses/literature','Литература');?></li>
+            <li num="literature"><?=anchor('physical/courses/literature','Электронная библиотека');?></li>
 			<li class="nav-header">Настройка</li>
 			<li num="start-page"><?=anchor('physical/information/start-page','Начальная страница');?></li>
 			<li num="ordering"><?=anchor('physical/registration/ordering','Оформление заказа');?></li>
