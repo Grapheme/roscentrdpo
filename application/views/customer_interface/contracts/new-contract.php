@@ -265,7 +265,7 @@ endif;
             <td><?=$record['address'];?></td>
             <td><?=$record['ctitle'];?></td>
             <td><?=$record['chours'];?></td>
-            <td><?=$record['сprice'];?></td>
+            <td><?=$record['сprice']-$record['discount'];?></td>
         </tr>
     <?php endforeach;?>
     </tbody>
