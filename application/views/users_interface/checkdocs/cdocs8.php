@@ -18,18 +18,19 @@
     endif;
     $courses = $trends = array();
     foreach($trends_list as $trend):
-        $trends[$trend['id']]= $trend['title'];
+        $trends[$trend['id']]['title'] = $trend['title'];
+        $trends[$trend['id']]['note'] = $trend['note'];
     endforeach;
     foreach($courses_list as $course):
         $courses[$course['trend']][] = $course;
     endforeach;
 ?>
 				<div class="clear"> </div>
-        <?php foreach($trends as $trend_id => $trend_title): ?>
+        <?php foreach($trends as $trend_id => $trend): ?>
             <?php if(isset($courses[$trend_id]) && !empty($courses[$trend_id])):?>
 				<p>
-					<strong><?= $trend_title ?> (<?=count($courses[$trend_id]);?> <?= $plural_words->pluralCourses($courses[$trend_id]) ?>)</strong><br>
-					Согласно  Приказу Министерства регионального развития РФ  от 30.12.2009 г № 624  
+					<strong><?= $trend['title']; ?> (<?=count($courses[$trend_id]);?> <?= $plural_words->pluralCourses($courses[$trend_id]) ?>)</strong><br>
+                    <?= $trend['note']; ?>
 				</p>
                 <ul>
                 <?php foreach ($courses[$trend_id] as $course): ?>
