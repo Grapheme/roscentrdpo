@@ -16,6 +16,9 @@
 					<li><a target="_blank" href="http://www.rekom-rostov.ru/wp-content/uploads/Ob-utverzhdenii-primernoy-formyi-dogovora-ob-okazanii-platnyih-obrazovatelnyih-uslug-v-sfere-obshhego-obrazovaniya.rtf">Приказ Минобразования России № 2994 от 10.07.2003 «Об утверждении примерной формы договора об оказании платных образовательных услуг в сфере общего образования»;</a>
 					<li><a target="_blank" href="http://www.rekom-rostov.ru/wp-content/uploads/Ob-ispolzovanii-distantsionnyih-obrazovatelnyih-tehnologiy.rtf">Приказ Минобрнауки РФ от 06.05.2005 N 137 "Об использовании дистанционных образовательных технологий";</a>
 					<li><a target="_blank" href="http://www.rekom-rostov.ru/wp-content/uploads/Prikaz-499-ot-01-07-2013.doc">Приказ 499 от 01.07.2013 "Об утверждении Порядка организации и осуществления образовательной деятельности по дополнительным профессиональным программам".</a>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/z1.rtf">Федеральный закон Российской Федерации от 12 января 1996 г. N 7-ФЗ «О некоммерческих организациях»</a></li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/z2.rtf">Федеральный закон Российской Федерации от 7 февраля 1992 г. N 2300-I «О защите прав потребителей»</a></li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/z3.pdf">Постановление Правительства РФ от 10.07.2013 N 582 «Об утверждении Правил размещения на официальном сайте образовательной организации в информационно-телекоммуникационной сети "Интернет" и обновления информации об образовательной организации»</a></li>
 				</ul>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>
