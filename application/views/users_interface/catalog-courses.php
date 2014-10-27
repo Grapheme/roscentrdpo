@@ -13,7 +13,7 @@
 				<h1 class="bordered courses">Курсы повышения квалификации руководителей и специалистов</h1>
 				<div class="btn-toolbar inline-right">
 					<div class="btn-group">
-						<a href="<?= base_url('price_list.pdf'); ?>courses_list.xls" class="btn btn-info"><i class="icon-th-list icon-white"></i> Каталог курсов и прайс-лист (.xls)</a>
+						<a href="<?= base_url('price_list.pdf'); ?>" class="btn btn-info"><i class="icon-th-list icon-white"></i> Каталог курсов и прайс-лист (.xls)</a>
 					</div>
 				</div>
 				<div class="clear"></div>
