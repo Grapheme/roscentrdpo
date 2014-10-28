@@ -42,14 +42,6 @@
 				<ul>
 					<li><a target="_blank" href="<?=base_url();?>documents/2014/protokol1.jpg">Протокол №1</a> от 10/01/2014</li>
 				</ul>
-				<p><strong>Приказы:</strong></p>
-				<ul>
-					<li>Приказ о назначении ревизора;
-				</ul>
-				<p><strong>Решения учредителя:</strong></p>
-				<ul>
-					<li>Решение 3_10.01.2014_ревизор;
-				</ul>
 				<p><strong>Налоговая декларация по УСН:</strong></p>
 				<ul>
 					<li><a target="_blank" href="<?=base_url();?>documents/2014/usn2012.pdf">2012 год</a></li>
