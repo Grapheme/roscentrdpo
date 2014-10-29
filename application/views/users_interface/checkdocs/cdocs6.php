@@ -49,9 +49,9 @@
 				</ul>
 				<p><strong>Образец удостоверения:</strong></p>
 				<ul>
-					<li>удостоверение
-					<li>удостоверение по пожарному тех.минимуму
-					<li>удостоверение по охране труда
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo1.jpg">Удостоверение</a></li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo3.jpg">Удостоверение</a> по пожарному тех.минимуму</li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo2.jpg">Удостоверение</a> по охране труда</li>
 				</ul>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>
