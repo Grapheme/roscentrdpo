@@ -42,14 +42,6 @@
 				<ul>
 					<li><a target="_blank" href="<?=base_url();?>documents/2014/protokol1.jpg">Протокол №1</a> от 10/01/2014</li>
 				</ul>
-				<p><strong>Приказы:</strong></p>
-				<ul>
-					<li>Приказ о назначении ревизора;
-				</ul>
-				<p><strong>Решения учредителя:</strong></p>
-				<ul>
-					<li>Решение 3_10.01.2014_ревизор;
-				</ul>
 				<p><strong>Налоговая декларация по УСН:</strong></p>
 				<ul>
 					<li><a target="_blank" href="<?=base_url();?>documents/2014/usn2012.pdf">2012 год</a></li>
@@ -57,9 +49,9 @@
 				</ul>
 				<p><strong>Образец удостоверения:</strong></p>
 				<ul>
-					<li>удостоверение
-					<li>удостоверение по пожарному тех.минимуму
-					<li>удостоверение по охране труда
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo1.jpg">Удостоверение</a></li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo3.jpg">Удостоверение</a> по пожарному тех.минимуму</li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/udo2.jpg">Удостоверение</a> по охране труда</li>
 				</ul>
 			</div>
 		<?php if($this->loginstatus['status'] && $this->loginstatus['zak']):?>
