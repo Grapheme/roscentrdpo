@@ -29,7 +29,7 @@
         <?php foreach($trends as $trend_id => $trend): ?>
             <?php if(isset($courses[$trend_id]) && !empty($courses[$trend_id])):?>
 				<p>
-					<strong><?= $trend['title']; ?> (<?=count($courses[$trend_id]);?> <?= $plural_words->pluralCourses($courses[$trend_id]) ?>)</strong><br>
+					<strong><?= $trend['title']; ?> (<?=count($courses[$trend_id]);?> <?= $plural_words->pluralCourses(count($courses[$trend_id])) ?>)</strong><br>
                     <?= $trend['note']; ?>
 				</p>
                 <ul>
