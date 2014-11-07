@@ -25,13 +25,13 @@
 					<li><a href="<?=base_url();?>documents/2014/prikaz4.jpg" target="_blank">Приказ №4</a> об утверждении стоимости образовательных услуг от 26/02/2014</li>
 					<li><a href="<?=base_url();?>documents/2014/prikaz8.jpg" target="_blank">Приказ №8</a> об утверждении стоимости образовательных услуг от 26/05/2014</li>
 					<li>Образец договора (<a target="_blank" href="<?=base_url();?>documents/2014/dogul.pdf">юр.лица</a>, <a target="_blank" href="<?=base_url();?>documents/2014/dogfl.pdf">физ.лица</a>)</li>
-					<li><a target="_blank" href="<?=base_url();?>documents/2014/dot.pdf">Положение</a> о применении дистанционных технологий обучения (ДОТ)</li>
-					<li><a target="_blank" href="<?=base_url();?>documents/2014/pravilaporyadka.pdf">Правила</a> внутреннего трудового распорядка</li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/dot.pdf">Правила</a> о применении дистанционных технологий обучения (ДОТ)</li>
+					<li><a target="_blank" href="<?=base_url();?>documents/2014/pravilaporyadka.pdf">Положение</a> о правилах внутреннего трудового распорядка работников</li>
 					<li>Отчет о самообследовании <a href="<?=base_url();?>documents/2014/report_observe_2013.pdf" target="_blank">за 2013 год</a></li>
 					<li>Отчет о самообследовании <a href="<?=base_url();?>documents/2014/report_observe_2014.pdf" target="_blank">за 2014 год</a></li>
 					<li><a target="_blank" href="<?=base_url();?>documents/2014/plangrafikI.pdf">План-график</a> работы на I полугодие 2014 года</li>
                		<li><a target="_blank" href="<?=base_url();?>documents/2014/plangrafikII.pdf">План-график</a> работы на II полугодие 2014 года</li>
-               		<li><a target="_blank" href="<?=base_url();?>documents/2014/akt27012014.jpg">Акт</a> заседания комиссии от 20 января 2014 года</li>
+               		<li><a target="_blank" href="<?=base_url();?>documents/2014/akt27012014.jpg">Акт</a> заседания комиссии от 27 января 2014 года</li>
 				</ul>
 				<p><strong>Отчеты в Юстицию:</strong></p>
 				<ul>
