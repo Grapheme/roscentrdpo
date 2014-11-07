@@ -30,7 +30,8 @@
 								</div>
 							<?= form_close(); ?>
 							</td>
-							<tr>
+                        </tr>
+						<tr>
 							<td class="short">2</td>
 							<td><i>Список праздничных дней в году</i></td>
 							<td>
