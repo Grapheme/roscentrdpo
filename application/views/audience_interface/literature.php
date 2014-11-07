@@ -8,7 +8,7 @@
         <div class="span9">
             <ul class="breadcrumb">
                 <li class="active">
-                    <?=anchor(uri_string(),'Литература');?>
+                    <?=anchor(uri_string(),'Электронная библиотека');?>
                 </li>
             </ul>
             <div>

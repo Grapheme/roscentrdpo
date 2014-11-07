@@ -62,7 +62,7 @@
 							<a class="btn btn-success" data-toggle="modal" href="#addChapter"><i class="icon-plus icon-white"></i> Новая глава</a>
 						</div>
 						<div class="btn-group">
-							<a class="btn btn-success" data-toggle="modal" href="#addDoc"><i class="icon-plus icon-white"></i> Литература</a>
+							<a class="btn btn-success" data-toggle="modal" href="#addDoc"><i class="icon-plus icon-white"></i> Электронная библиотека</a>
 						<?php if($document):?>
 							<a class="btn btn-download" data-toggle="modal" href="#getDocument" title="Скачать"><i class="icon-download-alt">&nbsp;</i></a>
 						<?php endif;?>

@@ -6,4 +6,4 @@
 			<li><?=anchor('admin-panel/actions/cabinet','Личный кабинет');?></li>
 		</ul>
 	</div>
--</div>
+</div>
