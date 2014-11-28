@@ -79,8 +79,11 @@ class Crontab_interface extends MY_Controller{
 		$ur_orders = $this->db->select('id,organization AS client,personemail AS email')->get('customers')->result_array();
 		$fiz_orders = $this->db->select('id,fio AS client,email AS email')->get('physical')->result_array();
 		$orders = array_merge($ur_orders,$fiz_orders);
+        $mailtext = $this->load->view('mails/reklama281114',NULL,TRUE);
+        $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','АНО ДПО','Акция',$mailtext);
 		foreach($orders as $order):
-			$mailtext = $this->load->view('mails/8-marta',NULL,TRUE);
+			$mailtext = $this->load->view('mails/reklama281114',NULL,TRUE);
+//			$mailtext = $this->load->view('mails/8-marta',NULL,TRUE);
 //			$mailtext = $this->load->view('mails/23-february',NULL,TRUE);
 //			$mailtext = $this->load->view('mails/mass-mailing',array('order'=>$order),TRUE);
 			if($this->input->get('mode') == 'test'):
