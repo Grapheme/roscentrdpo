@@ -85,7 +85,7 @@ class Crontab_interface extends MY_Controller{
 //			$mailtext = $this->load->view('mails/mass-mailing',array('order'=>$order),TRUE);
 			if($this->input->get('mode') == 'test'):
 				echo $mailtext;
-                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','АНО ДПО','Акция',$mailtext);
+                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение «Охрана труда»',$mailtext);
 				exit;
 			else:
 				echo $order['email']. '<br />';
