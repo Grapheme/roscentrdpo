@@ -87,7 +87,7 @@ class Crontab_interface extends MY_Controller{
                 $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','АНО ДПО','Акция',$mailtext);
 				exit;
 			else:
-				echo $order['email']. ',';
+				echo $order['email']. '<br />';
 				//$this->sendMail($order['email'],'info@roscentrdpo.ru','АНО ДПО','Акция',$mailtext);
 			endif;
 		endforeach;
