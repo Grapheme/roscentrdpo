@@ -85,13 +85,13 @@ class Crontab_interface extends MY_Controller{
 //			$mailtext = $this->load->view('mails/mass-mailing',array('order'=>$order),TRUE);
 			if($this->input->get('mode') == 'test'):
 				echo $mailtext;
-                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение «Охрана труда»',$mailtext);
-                $this->sendMail('info@roscentrdpo.ru','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение «Охрана труда»',$mailtext);
+                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
+                $this->sendMail('info@roscentrdpo.ru','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
 				exit;
 			else:
 				echo $order['email']. '<br />';
                 $sending++;
-//				$this->sendMail($order['email'],'info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение «Охрана труда»',$mailtext);
+				$this->sendMail($order['email'],'info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
 			endif;
 		endforeach;
 		echo "Отправлено писем: $sending";
