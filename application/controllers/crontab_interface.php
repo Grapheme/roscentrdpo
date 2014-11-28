@@ -79,6 +79,7 @@ class Crontab_interface extends MY_Controller{
 		$ur_orders = $this->db->select('id,organization AS client,personemail AS email')->get('customers')->result_array();
 		$fiz_orders = $this->db->select('id,fio AS client,email AS email')->get('physical')->result_array();
 		$orders = array_merge($ur_orders,$fiz_orders);
+        $sending = 0;
 		foreach($orders as $order):
 			$mailtext = $this->load->view('mails/reklama281114',NULL,TRUE);
 //			$mailtext = $this->load->view('mails/mass-mailing',array('order'=>$order),TRUE);
@@ -88,9 +89,10 @@ class Crontab_interface extends MY_Controller{
 				exit;
 			else:
 				echo $order['email']. '<br />';
+                $sending++;
 				//$this->sendMail($order['email'],'info@roscentrdpo.ru','АНО ДПО','Акция',$mailtext);
 			endif;
 		endforeach;
-		echo 'OK';
+		echo "Отправлено писем: $sending";
 	}
 }
