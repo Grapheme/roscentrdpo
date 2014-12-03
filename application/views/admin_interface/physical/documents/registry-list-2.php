@@ -4,8 +4,7 @@
 <body>
 	<style type="text/css">
 		body { padding: 20px 0 0; }
-
-		@media all { 
+		@media all {
   			.page-break  { display:none; }
 		}
 		@media print {
