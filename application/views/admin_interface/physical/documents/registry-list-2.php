@@ -35,9 +35,9 @@
 						<?php for($i=0;$i<count($info);$i++):?>
 							<tr>
 								<td><?=$i+1;?></td>
-								<?php $fio = preg_split("/[ ]+/",$info[$i]['fio']);?>
+								<?php $fio = preg_split("/[ ]+/",$info[$i]['fiodat']);?>
 								<td><?php if(isset($fio[0])): echo $fio[0]; endif;?></td>
-								<td><?php if(isset($fio[1])&&isset($fio[2])): echo $fio[1].' '.$fio[2]; endif;?></td>
+								<td><?php if(isset($fio[1]) && isset($fio[2])): echo $fio[1].' '.$fio[2]; endif;?></td>
 								<td><?=$info[$i]['ccode'].' '.$info[$i]['ctitle'];?></td>
 							</tr>
 						<?php endfor;?>
