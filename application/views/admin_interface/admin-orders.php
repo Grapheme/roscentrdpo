@@ -85,7 +85,7 @@
 									<span class="listeners-count">[<?=$orders[$i]['regnum'];?>]</span><br/>
 								<nobr>
 									<?=anchor('admin-panel/messages/orders/id/'.$orders[$i]['id'].'/invoice','<img src="'.$baseurl.'img/icon/document-attribute-i.png" />',array('target'=>'_blank','title'=>'Счет на оплату'));?>
-									<?=anchor('admin-panel/messages/orders/id/'.$orders[$i]['id'].'/contract?app1=0&app2=0','<img src="'.$baseurl.'img/icon/document-attribute-c.png" />',array('target'=>'_blank','title'=>'Договор на оказание образовательных услуг'));?>
+									<?=anchor('admin-panel/messages/orders/id/'.$orders[$i]['id'].'/contract?app1=3000&app2=3000','<img src="'.$baseurl.'img/icon/document-attribute-c.png" />',array('target'=>'_blank','title'=>'Договор на оказание образовательных услуг'));?>
 									<?=anchor('admin-panel/messages/orders/id/'.$orders[$i]['id'].'/act','<img src="'.$baseurl.'img/icon/document-attribute-a.png" />',array('target'=>'_blank','title'=>'Акт к договору на оказание услуг'));?>
 									<span class="listeners-count">[<?=$orders[$i]['audcnt'];?>]</span><br/>
 									<?=anchor('admin-panel/messages/orders/id/'.$orders[$i]['id'].'/invoice?stamp=no','<img src="'.$baseurl.'img/icon/stamp-minus.png" />',array('target'=>'_blank','title'=>'Счет на оплату'));?>
