@@ -195,6 +195,7 @@
 </table>
 </p>
 <p class="page-break">&nbsp;</p>
+<p style="margin-bottom: 1600px;">&nbsp;</p>
 <p class="center title">
     <strong>Приложение №1 к договору № <?=number_order($order['number'],$order['year']);?></strong>
 </p>
@@ -332,6 +333,7 @@ endif;
 </p> -->
 
 <p class="page-break">&nbsp;</p>
+<p style="margin-bottom: 200px;">&nbsp;</p>
 <p style="text-align: right;">
     <em>Приложение является <br> неотъемлемой частью договора</em>
 </p>
