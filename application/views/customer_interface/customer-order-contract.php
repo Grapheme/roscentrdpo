@@ -51,7 +51,8 @@
       				<strong>1. Предмет договора</strong>
       			</p>
       			<?php
-                if($order['date'] <= '2014-09-05'):
+                #if($order['date'] <= '2014-09-05'):
+                if($order['date'] <= '2014-01-01'):
                     $this->load->view('customer_interface/contracts/old-contract');
                 else:
                     $this->load->view('customer_interface/contracts/new-contract');
