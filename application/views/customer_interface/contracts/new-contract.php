@@ -336,7 +336,7 @@ endif;
     <em>Приложение является <br> неотъемлемой частью договора</em>
 </p>
 <p class="center title">
-    <strong>Приложение № 2 к договору № <?=number_order($order['number'],$order['year']);?> <br> от <?=$order['orderdate'];?></strong>
+    <strong>Приложение №2 к договору № <?=number_order($order['number'],$order['year']);?> <br> от <?=$order['orderdate'];?></strong>
 </p>
 <div class="clearfix">
     <p class="pull-left">
