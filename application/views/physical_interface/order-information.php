@@ -46,7 +46,7 @@
 									<div class="caption">
 										<h5>Договор на оказание образовательных услуг</h5>
 										<p>Договор №<?=number_order($order['number'],$order['year']);?> об оказании образовательных услуг с применением дистанционных технологий.</p>
-										<p><?=anchor($this->uri->uri_string().'/contract','Просмотр',array('class'=>'btn btn-primary','target'=>'_blank'));?></p>
+										<p><?=anchor($this->uri->uri_string().'/contract?app1=3000&app2=3000','Просмотр',array('class'=>'btn btn-primary','target'=>'_blank'));?></p>
 									</div>
 								</div>
 							</li>

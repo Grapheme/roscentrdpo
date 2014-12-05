@@ -50,7 +50,7 @@
 							<td class="centerized"><?=$orders[$i]['orderdate'];?></td>
 							<td class="centerized">
 							<?=anchor('physical/information/orders/order-information/id/'.$orders[$i]['id'].'/invoice-for-payment','<img src="'.$baseurl.'img/icon/document-attribute-i.png" />',array('title'=>'Счет на оплату','target'=>'_blank'));?>
-							<?=anchor('physical/information/orders/order-information/id/'.$orders[$i]['id'].'/contract','<img src="'.$baseurl.'img/icon/document-attribute-c.png" />',array('title'=>'Договор на оказание образовательных услуг','target'=>'_blank'));?>
+							<?=anchor('physical/information/orders/order-information/id/'.$orders[$i]['id'].'/contract?app1=3000&app2=3000','<img src="'.$baseurl.'img/icon/document-attribute-c.png" />',array('title'=>'Договор на оказание образовательных услуг','target'=>'_blank'));?>
 							<?php if($orders[$i]['numbercompletion']):?>
 							<?=anchor('physical/information/orders/order-information/id/'.$orders[$i]['id'].'/act-to-contract','<img src="'.$baseurl.'img/icon/document-attribute-a.png" />',array('title'=>'Акт к договору на оказание услуг','target'=>'_blank'));?>
 							<?php endif;?>
