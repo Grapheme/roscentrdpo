@@ -143,4 +143,24 @@
 		endif;
 	}
 
+    function documentLicenseDateShort($orderDate){
+
+		if(!empty($orderDate)):
+			$daysDiff = (strtotime($orderDate) - 1365537600)/(3600*24);
+			$yearsDiff = round($daysDiff/365,5);
+			$date = '№1 от ';
+			if($yearsDiff < 0):
+				$date .= '10.04.2012';
+			elseif((int)$yearsDiff == 1): // c 2014 года
+				$date = '№4 от 10.04.'.(int)(2013 + $yearsDiff);
+			elseif($yearsDiff >= 0): // c 2013 и не учитывая 2013
+				$date .= '10.04.'.(int)(2013 + $yearsDiff);
+			endif;
+			$date .= ' г.';
+			return $date;
+		else:
+			return nbs(20).date("Y").' г.';
+		endif;
+	}
+
 ?>
