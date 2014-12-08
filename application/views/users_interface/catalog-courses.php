@@ -70,6 +70,7 @@
 										<tr>
 											<td><?=$num?></td>
 											<td>
+                                        <?php if(FALSE):?>
 											<?php if(FALSE && !empty($courses[$j]['curriculum']) && is_file(getcwd().'/'.$courses[$j]['curriculum'])):?>
 												<a href="<?=site_url('catalog/courses/getCurriculum?course='.$courses[$j]['id']);?>" class="">
 													<?=$courses[$j]['title'];?>
@@ -79,8 +80,11 @@
 													<?=$courses[$j]['title'];?>
 												</a>
 											<?php else:?>
-												<?=$courses[$j]['title'];?>
-											<?php endif;?>
+                                                <?=$courses[$j]['title'];?>
+                                            <?php endif;?>
+                                        <?php else:?>
+                                            <?=$courses[$j]['title'];?>
+                                        <?php endif;?>
                                             <?php if(!empty($courses[$j]['programm_scan'])): ?>
                                                 <br /><a href="<?=base_url($courses[$j]['programm_scan']);?>" target="_blank">Утвержденная программа</a>
                                             <?php endif; ?>

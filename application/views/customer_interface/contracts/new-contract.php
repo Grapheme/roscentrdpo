@@ -279,7 +279,7 @@ endif;
     <?php endforeach;?>
     </tbody>
 </table>
-<!--
+
 <p>
     <strong>7. Реквизиты сторон</strong>
 </p>
@@ -336,7 +336,7 @@ endif;
     </tr>
     </tbody>
 </table>
-</p> -->
+</p>
 
 <p class="page-break">&nbsp;</p>
 <?php

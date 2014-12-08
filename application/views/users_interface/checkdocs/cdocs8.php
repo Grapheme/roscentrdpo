@@ -36,11 +36,15 @@
                 <?php foreach ($courses[$trend_id] as $course): ?>
                     <li>
                         <?= $course['code'] ?>
+                    <?php if(FALSE):?>
                         <?php if (!empty($course['programm_scan'])): ?>
                             <a target="_blank" href="<?=base_url($course['programm_scan']);?>" class=""><?= $course['title']; ?></a>
                         <?php else: ?>
                             <?= $course['title']; ?>
                         <?php endif; ?>
+                    <?php else: ?>
+                        <?= $course['title']; ?>
+                    <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
                 </ul>
