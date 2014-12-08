@@ -82,12 +82,12 @@
 											<?php else:?>
                                                 <?=$courses[$j]['title'];?>
                                             <?php endif;?>
-                                        <?php else:?>
-                                            <?=$courses[$j]['title'];?>
-                                        <?php endif;?>
                                             <?php if(!empty($courses[$j]['programm_scan'])): ?>
                                                 <br /><a href="<?=base_url($courses[$j]['programm_scan']);?>" target="_blank">Утвержденная программа</a>
                                             <?php endif; ?>
+                                        <?php else:?>
+                                            <?=$courses[$j]['title'];?>
+                                        <?php endif;?>
 											</td>
 											<td><?= $courses[$j]['code']; ?></td>
 											<td><?=nl2br($courses[$j]['note']);?></td>
