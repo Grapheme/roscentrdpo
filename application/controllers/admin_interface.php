@@ -2147,7 +2147,6 @@ class Admin_interface extends MY_Controller {
 	
 	public function contract(){
 		
-		$this->uri->segment(6);
 		$pagevar = array(
 			'description'	=> '',
 			'author'		=> '',
@@ -2159,8 +2158,10 @@ class Admin_interface extends MY_Controller {
 			'order'			=> $this->ordersmodel->read_record($this->uri->segment(5)),
 			'course'		=> $this->unionmodel->read_corder_group_records($this->uri->segment(5)),
 			'msgs'			=> $this->session->userdata('msgs'),
-			'msgr'			=> $this->session->userdata('msgr')
+			'msgr'			=> $this->session->userdata('msgr'),
+			'listeners'		=> $this->unionmodel->read_fullinfo_audience($this->uri->segment(5))
 		);
+
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		$pagevar['order']['date'] = $pagevar['order']['orderdate'];

@@ -232,18 +232,19 @@ class Customer_interface extends MY_Controller {
 			redirect('customer/audience/orders');
 		endif;
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'РосЦентр ДПО - ',
-					'baseurl' 		=> base_url(),
-					'loginstatus'	=> $this->loginstatus,
-					'userinfo'		=> $this->user,
-					'customer'		=> array(),
-					'order'			=> $this->ordersmodel->read_record($this->uri->segment(6)),
-					'course'		=> $this->unionmodel->read_corder_group_records($this->uri->segment(6)),
-					'msgs'			=> $this->session->userdata('msgs'),
-					'msgr'			=> $this->session->userdata('msgr')
-			);
+			'description'	=> '',
+			'author'		=> '',
+			'title'			=> 'РосЦентр ДПО - ',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'customer'		=> array(),
+			'order'			=> $this->ordersmodel->read_record($this->uri->segment(6)),
+			'course'		=> $this->unionmodel->read_corder_group_records($this->uri->segment(6)),
+			'listeners'		=> $this->unionmodel->read_fullinfo_audience($this->uri->segment(6)),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr')
+		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		$pagevar['order']['date'] = $pagevar['order']['orderdate'];
