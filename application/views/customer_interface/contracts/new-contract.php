@@ -64,7 +64,7 @@
             <td><?=$listener['address'];?></td>
             <td><?=$listener['ccode'].'. '.$listener['ctitle'];?></td>
             <td><?=$listener['chours'];?></td>
-            <td><?=$listener['сprice'];?></td>
+            <td><?=$listener['сprice']-$listener['discount'];?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
