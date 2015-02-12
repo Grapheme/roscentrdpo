@@ -11,8 +11,9 @@ p { font: 14px/21px 'PT Sans', "Times New Roman", Times, serif; margin-bottom: 1
 
 /* ==|== header ====================================================== */
 
-header { margin: 68px 0 0; padding-top: 15px; }
+header { margin: 0; padding-top: 15px; }
 header.admin { margin: 10px 0 20px; }
+/*
 header:before {
 	content: "";
 	position: absolute;
@@ -25,6 +26,7 @@ header:before {
 	background-repeat: no-repeat;
 	z-index: -1;
 }
+*/
 
 #logo { font-family: 'PT Sans', "Times New Roman", Times, serif; background: url("../img/logo_small.png") no-repeat scroll 0 5px transparent; display: block; color: #00699f; font-size: 30px; line-height: 36px; font-weight: bold; text-transform: uppercase; padding: 0 0 0 115px; position: relative; outline: 0 none; text-decoration: none; margin: 15px 0 0; }
 #logo span { font-size: 17px; font-weight: normal; left: 247px; position: absolute; text-transform: none; top: 34px;  }
