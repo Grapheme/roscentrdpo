@@ -47,11 +47,11 @@
 					<div class="accordion-group">
 						<a name="<?=$trends[$i]['tags'];?>"></a>
 						<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?=$trends[$i]['tags'];?>_accordion">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?=(!empty($trends[$i]['tags']) ? $trends[$i]['tags']: $uniq = uniqid(time()));?>_accordion">
 								<?=$trends[$i]['title'];?> <span class="small">(курсов: <?=$numCourses;?>)</span>
 							</a>
 						</div>
-						<div id="<?=$trends[$i]['tags'];?>_accordion" class="accordion-body collapse <?=($i==0)?' in':'';?>">
+						<div id="<?=(!empty($trends[$i]['tags']) ? $trends[$i]['tags']: @$uniq;?>_accordion" class="accordion-body collapse <?=($i==0)?' in':'';?>">
 							<div class="accordion-inner">
 								<table class="table table-striped">
 									<thead>
