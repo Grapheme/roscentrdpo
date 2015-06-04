@@ -48,7 +48,7 @@
 						<a name="<?=$trends[$i]['tags'];?>"></a>
 						<div class="accordion-heading">
 							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?=$trends[$i]['tags'];?>_accordion">
-								<?=htmlspecialchars($trends[$i]['title']);?> <span class="small">(курсов: <?=$numCourses;?>)</span>
+								<?=htmlentities ($trends[$i]['title']);?> <span class="small">(курсов: <?=$numCourses;?>)</span>
 							</a>
 						</div>
 						<div id="<?=$trends[$i]['tags'];?>_accordion" class="accordion-body collapse <?=($i==0)?' in':'';?>">
@@ -73,11 +73,11 @@
                                         <?php if(FALSE):?>
 											<?php if(FALSE && !empty($courses[$j]['curriculum']) && is_file(getcwd().'/'.$courses[$j]['curriculum'])):?>
 												<a href="<?=site_url('catalog/courses/getCurriculum?course='.$courses[$j]['id']);?>" class="">
-													<?=htmlspecialchars($courses[$j]['title']);?>
+													<?=htmlentities($courses[$j]['title']);?>
 												</a>
 											<?php elseif($courses[$j]['curriculum_exist'] !== FALSE):?>
 												<a href="<?=site_url('catalog/courses/curriculum?id='.$courses[$j]['curriculum_exist']);?>" class="">
-													<?=htmlspecialchars($courses[$j]['title']);?>
+													<?=htmlentities($courses[$j]['title']);?>
 												</a>
 											<?php else:?>
                                                 <?=$courses[$j]['title'];?>
@@ -86,11 +86,11 @@
                                                 <br /><a href="<?=base_url($courses[$j]['programm_scan']);?>" target="_blank">Утвержденная программа</a>
                                             <?php endif; ?>
                                         <?php else:?>
-                                            <?=htmlspecialchars($courses[$j]['title']);?>
+                                            <?=htmlentities ($courses[$j]['title']);?>
                                         <?php endif;?>
 											</td>
-											<td><?= htmlspecialchars($courses[$j]['code']); ?></td>
-											<td><?=htmlspecialchars(nl2br($courses[$j]['note']));?></td>
+											<td><?= htmlentities ($courses[$j]['code']); ?></td>
+											<td><?=htmlentities (nl2br($courses[$j]['note']));?></td>
 											<td class="centerized"><nobr><?= $courses[$j]['hours']; ?> ч.</nobr></td>
 											<td class="centerized">
 											<?php if ( false && $trends[$i]['id'] == 16 && in_array($courses[$j]['id'],array(46,47,49,50,53,55,56,57))):?>
