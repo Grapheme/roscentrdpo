@@ -81,17 +81,18 @@ class Crontab_interface extends MY_Controller{
 		$orders = array_merge($ur_orders,$fiz_orders);
         $sending = 0;
 		foreach($orders as $order):
-			$mailtext = $this->load->view('mails/reklama281114',NULL,TRUE);
+//			$mailtext = $this->load->view('mails/reklama281114',NULL,TRUE);
 //			$mailtext = $this->load->view('mails/mass-mailing',array('order'=>$order),TRUE);
+			$mailtext = $this->load->view('mails/obuchenie_ohrana_truda',array('order'=>$order),TRUE);
 			if($this->input->get('mode') == 'test'):
 				echo $mailtext;
-                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
-                $this->sendMail('info@roscentrdpo.ru','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
+                $this->sendMail('vkharseev@gmail.com','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение по охране труда при работе на высоте.',$mailtext);
+                #$this->sendMail('info@roscentrdpo.ru','info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение по охране труда при работе на высоте.',$mailtext);
 				exit;
 			else:
 				echo $order['email']. '<br />';
                 $sending++;
-				$this->sendMail($order['email'],'info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Руководителю! По охране труда.',$mailtext);
+				#$this->sendMail($order['email'],'info@roscentrdpo.ru','Образовательный портал АНО ДПО «Южно-окружной центр повышения квалификации»','Обучение по охране труда при работе на высоте.',$mailtext);
 			endif;
 		endforeach;
 		echo "Отправлено писем: $sending";
