@@ -50,11 +50,11 @@
                             <?php
                                 $uniq = uniqid('catalog_');
                             ?>
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?=(!empty($trends[$i]['tags']) ? $trends[$i]['tags'] : $uniq ;?>_accordion">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?=(!empty($trends[$i]['tags'])) ? $trends[$i]['tags'] : $uniq ;?>_accordion">
 								<?=$trends[$i]['title'];?> <span class="small">(курсов: <?=$numCourses;?>)</span>
 							</a>
 						</div>
-						<div id="<?=(!empty($trends[$i]['tags']) ? $trends[$i]['tags']: @$uniq ;?>_accordion" class="accordion-body collapse <?=($i==0)?' in':'';?>">
+						<div id="<?=(!empty($trends[$i]['tags'])) ? $trends[$i]['tags']: @$uniq ;?>_accordion" class="accordion-body collapse <?=($i==0)?' in':'';?>">
 							<div class="accordion-inner">
 								<table class="table table-striped">
 									<thead>
